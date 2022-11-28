@@ -16,12 +16,16 @@ public class PlayerMovement : MonoBehaviour
     private float x;
     private float y;
 
-    private Vector2 dir = Vector2.right;
+    private Vector2 dir = Vector2.left;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         dashAvailable = true;
         invencible = false;
     }
@@ -31,11 +35,17 @@ public class PlayerMovement : MonoBehaviour
     {
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
-
         Move();
     }
 
-    private void FixedUpdate() { rb.AddForce(Vector2.zero * spe, ForceMode2D.Force); }
+    private void FixedUpdate() 
+    {
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            dir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            rb.AddForce(Vector2.zero * spe, ForceMode2D.Force);
+        }    
+    }
 
     private void Move()
     {
@@ -45,11 +55,11 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(dir * Time.deltaTime * spe);
         }
       
-        if (x == 0 && y == 0) { rb.velocity = Vector2.zero; }
+        //if (x == 0 && y == 0) { rb.velocity = Vector2.zero; }
 
         if (Input.GetKeyDown(KeyCode.Space) && dashAvailable)
         {
-            rb.velocity = Vector2.zero;
+            //rb.velocity = Vector2.zero;
             Dash();
         }
     }

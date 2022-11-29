@@ -13,10 +13,10 @@ public class PlayerMovement : MonoBehaviour
     public float invencibleDuration; 
     public float dashCD;
     public float dashF;
-    private float x;
-    private float y;
 
-    private Vector2 dir = Vector2.left;
+    private Mov m;
+
+    private Vector2 dir;
 
     void Awake()
     {
@@ -33,39 +33,36 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x = Input.GetAxis("Horizontal");
-        y = Input.GetAxis("Vertical");
-        Move();
+
     }
 
     private void FixedUpdate() 
     {
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
-        {
-            dir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            rb.AddForce(Vector2.zero * spe, ForceMode2D.Force);
-        }    
+        Move();
     }
 
     private void Move()
-    {
-        if (x != 0 || y != 0)
+    {  
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             dir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            transform.Translate(dir * Time.deltaTime * spe);
+            rb.AddForce(dir * spe, ForceMode2D.Force);
         }
-      
-        //if (x == 0 && y == 0) { rb.velocity = Vector2.zero; }
+
+        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0) { rb.velocity = Vector2.zero; }
+        
 
         if (Input.GetKeyDown(KeyCode.Space) && dashAvailable)
         {
-            //rb.velocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
             Dash();
         }
+        
     }
 
     private void Dash()
     {
+        m = Mov.Dash;
         rb.AddForce(dir.normalized * dashF, ForceMode2D.Impulse);
         StartCoroutine(canDash());
         StartCoroutine(invulnerability());
@@ -85,4 +82,6 @@ public class PlayerMovement : MonoBehaviour
         invencible = false;
         rb.velocity = Vector2.zero;
     }
+
+    public enum Mov { Movement, Stop, Dash }
 }

@@ -2401,7 +2401,7 @@ MonoBehaviour:
   spe: 35
   invencibleDuration: 0.3
   dashCD: 5
-  dashF: 10
+  dashF: 35
 --- !u!61 &1211326925
 BoxCollider2D:
   m_ObjectHideFlags: 0

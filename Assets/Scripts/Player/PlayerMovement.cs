@@ -7,15 +7,12 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     
-    public float spe;
-    private bool dashAvailable;
-    private bool invencible;
-    public float invencibleDuration; 
-    public float dashCD;
-    public float dashF;
+    private bool dashAvailable, invencible;
+    public float spe, invencibleDuration, dashCD, dashF;
+
+    private float x, y;
 
     private Mov m;
-
     private Vector2 dir;
 
     void Awake()
@@ -30,34 +27,28 @@ public class PlayerMovement : MonoBehaviour
         invencible = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void FixedUpdate() 
     {
+        x = Input.GetAxis("Horizontal");
+        y = Input.GetAxis("Vertical");
         Move();
     }
 
     private void Move()
     {  
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        if (x != 0 || y != 0)
         {
-            dir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            dir = new Vector2(x, y);
             rb.AddForce(dir * spe, ForceMode2D.Force);
         }
 
-        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0) { rb.velocity = Vector2.zero; }
-        
+        if (x == 0 && y == 0) { rb.velocity = Vector2.zero; }
 
         if (Input.GetKeyDown(KeyCode.Space) && dashAvailable)
         {
             rb.velocity = Vector2.zero;
             Dash();
         }
-        
     }
 
     private void Dash()

@@ -2251,6 +2251,7 @@ GameObject:
   - component: {fileID: 1087620916}
   - component: {fileID: 1087620918}
   - component: {fileID: 1087620917}
+  - component: {fileID: 1087620919}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -2338,6 +2339,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1087620919
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087620915}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b2f10368580cfa41a7422feefbcec6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1211326919
 GameObject:
   m_ObjectHideFlags: 0
@@ -2366,7 +2387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211326919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9556081, y: 1.1174914, z: -2.16}
+  m_LocalPosition: {x: 0, y: 0, z: -2.16}
   m_LocalScale: {x: -5, y: -5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2398,7 +2419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6351122904c75db4b8f82e19781191ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spe: 35
+  anim: {fileID: 1087620919}
+  spe: 6
   invencibleDuration: 0.3
   dashCD: 5
   dashF: 35

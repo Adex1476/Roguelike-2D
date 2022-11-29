@@ -6,7 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
-    
+    [SerializeField] private Animator anim;
+
     private bool dashAvailable, invencible;
     public float spe, invencibleDuration, dashCD, dashF;
 
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         invencible = false;
     }
 
-    private void FixedUpdate() 
+    private void Update() 
     {
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
@@ -54,9 +55,11 @@ public class PlayerMovement : MonoBehaviour
     private void Dash()
     {
         m = Mov.Dash;
+        anim.SetBool("isDashing", true);
         rb.AddForce(dir.normalized * dashF, ForceMode2D.Impulse);
         StartCoroutine(canDash());
         StartCoroutine(invulnerability());
+        
     }
 
     IEnumerator canDash()
@@ -72,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(invencibleDuration);
         invencible = false;
         rb.velocity = Vector2.zero;
+        anim.SetBool("isDashing", false);
     }
 
     public enum Mov { Movement, Stop, Dash }

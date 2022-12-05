@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance = null;
     public GameObject Player;
+    public GameObject Enemy;
+    private Text lifes;
+    private Text enemies;
+    private Text scrpoints;
+    public int hp;
     private int _score;
     private int _highScore;
+    private int _enemiesRemaining;
     private Vector2 _cameraSize;
-    private int enemiesRemaining;
 
     public int score { get => _score; set => _score = value; }
     public int highScore { get => _highScore; set => _highScore = value; }
@@ -30,14 +37,16 @@ public class GameManager : MonoBehaviour
         _instance = this;
 
         score = 0;
-        enemiesRemaining = 0;
-        //highScore = PlayerPrefs.GetInt("highScore", highScore);
+        _enemiesRemaining = 0;
+        highScore = PlayerPrefs.GetInt("highScore", highScore);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         updateCS();
+        _enemiesRemaining = 0;
+        score = 0;
     }
 
     // Update is called once per frame
@@ -46,5 +55,26 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public int dmg()
+    {
+        hp--;
+        return hp;
+    }
+
+    public void enemiesInS(int ekAux)
+    {
+        _enemiesRemaining += ekAux;
+        enemies.text = "Enemies : " + _enemiesRemaining;
+    }
+
+    public void scorePoints(int scoreAux)
+    {
+        score += scoreAux;
+        if (scrpoints != null) { scrpoints.text = "Score : " + score; }
+    }
+
+
     public void updateCS() { _cameraSize = new Vector2(Camera.main.orthographicSize * Screen.width / Screen.height, Camera.main.orthographicSize); }
+
+    public void ReloadScene() { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
 }

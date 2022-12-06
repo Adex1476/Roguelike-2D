@@ -433,6 +433,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
       propertyPath: m_RootOrder
@@ -446,7 +451,7 @@ PrefabInstance:
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.2
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
@@ -2617,6 +2622,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pillar Broken (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: cfa0a5ef94fb05d4f97d095a05dc55c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfa0a5ef94fb05d4f97d095a05dc55c5, type: 3}
 --- !u!4 &740546881 stripped
@@ -2634,12 +2644,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055102311959635368, guid: 6d9a1504606c57143b1a8bbc2249aabe,
         type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635368, guid: 6d9a1504606c57143b1a8bbc2249aabe,
+        type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635368, guid: 6d9a1504606c57143b1a8bbc2249aabe,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1869315837
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635369, guid: 6d9a1504606c57143b1a8bbc2249aabe,
         type: 3}
       propertyPath: m_Name
+      value: Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6d9a1504606c57143b1a8bbc2249aabe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6d9a1504606c57143b1a8bbc2249aabe,
+        type: 3}
+      propertyPath: m_TagString
       value: Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6d9a1504606c57143b1a8bbc2249aabe,
@@ -2697,6 +2727,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102312182832482, guid: 6d9a1504606c57143b1a8bbc2249aabe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d9a1504606c57143b1a8bbc2249aabe, type: 3}
 --- !u!4 &804495291 stripped
@@ -2717,6 +2752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd0810cae56c514ca8dec8b8865556b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeRemaining: 6
+  _timeBtwWaves: 3
   _enemy1: {fileID: 8398284354831088985, guid: d60419259782e86479fb56442417feff, type: 3}
 --- !u!1 &839612719 stripped
 GameObject:
@@ -2735,6 +2772,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Tree T3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 9e7797bb065982d4497d030f065d6e2f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 9e7797bb065982d4497d030f065d6e2f,
         type: 3}
@@ -2865,6 +2907,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF Props Pillar Broken
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: cfa0a5ef94fb05d4f97d095a05dc55c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfa0a5ef94fb05d4f97d095a05dc55c5, type: 3}
@@ -3005,6 +3052,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Tree T1
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: f681a54372d73d74785b9c9d4ac477e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: f681a54372d73d74785b9c9d4ac477e8,
         type: 3}
       propertyPath: m_RootOrder
@@ -3085,6 +3137,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate Small
       objectReference: {fileID: 0}
+    - target: {fileID: 8150476868300563372, guid: 2e2ac125e54a1e44780363d638b1df34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
       propertyPath: m_RootOrder
@@ -3098,7 +3155,7 @@ PrefabInstance:
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.82
+      value: -3.62
       objectReference: {fileID: 0}
     - target: {fileID: 8150476868300563375, guid: 2e2ac125e54a1e44780363d638b1df34,
         type: 3}
@@ -3329,6 +3386,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Pillar
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 41ea6afb203377e42995d7d016ea5907,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41ea6afb203377e42995d7d016ea5907, type: 3}
 --- !u!4 &1229541656 stripped
@@ -3354,6 +3416,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
       propertyPath: m_RootOrder
@@ -3367,7 +3434,7 @@ PrefabInstance:
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.93
+      value: -3.73
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
@@ -3501,7 +3568,7 @@ GameObject:
   - component: {fileID: 1468826078}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4632,12 +4699,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055102311959635368, guid: 3fcd8726c7cd53345947949baefbab35,
         type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635368, guid: 3fcd8726c7cd53345947949baefbab35,
+        type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635368, guid: 3fcd8726c7cd53345947949baefbab35,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1869315837
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635369, guid: 3fcd8726c7cd53345947949baefbab35,
         type: 3}
       propertyPath: m_Name
+      value: Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 3fcd8726c7cd53345947949baefbab35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 3fcd8726c7cd53345947949baefbab35,
+        type: 3}
+      propertyPath: m_TagString
       value: Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 3fcd8726c7cd53345947949baefbab35,
@@ -4694,6 +4781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102312182832482, guid: 3fcd8726c7cd53345947949baefbab35,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fcd8726c7cd53345947949baefbab35, type: 3}
@@ -4842,6 +4934,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Wooden Gate
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6a057178eb028e94fb93bf39262ea3e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6a057178eb028e94fb93bf39262ea3e8,
         type: 3}
       propertyPath: m_RootOrder
@@ -4933,6 +5030,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd0810cae56c514ca8dec8b8865556b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeRemaining: 6
+  _timeBtwWaves: 3
   _enemy1: {fileID: 8398284354831088985, guid: d60419259782e86479fb56442417feff, type: 3}
 --- !u!1001 &1721501443
 PrefabInstance:
@@ -5111,6 +5210,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Props Crate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577585254963922480, guid: fb2df5b680b64b449a78162ebcd98e97,
+        type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
       propertyPath: m_RootOrder
@@ -5124,7 +5228,7 @@ PrefabInstance:
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.2
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2577585254963922481, guid: fb2df5b680b64b449a78162ebcd98e97,
         type: 3}
@@ -5183,12 +5287,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055102311959635368, guid: 6242b925f1d3e0d44a183102cd3d4c26,
         type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635368, guid: 6242b925f1d3e0d44a183102cd3d4c26,
+        type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635368, guid: 6242b925f1d3e0d44a183102cd3d4c26,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1869315837
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635369, guid: 6242b925f1d3e0d44a183102cd3d4c26,
         type: 3}
       propertyPath: m_Name
+      value: Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6242b925f1d3e0d44a183102cd3d4c26,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6242b925f1d3e0d44a183102cd3d4c26,
+        type: 3}
+      propertyPath: m_TagString
       value: Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635375, guid: 6242b925f1d3e0d44a183102cd3d4c26,
@@ -5246,6 +5370,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2055102312182832482, guid: 6242b925f1d3e0d44a183102cd3d4c26,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6242b925f1d3e0d44a183102cd3d4c26, type: 3}
 --- !u!4 &2110483722 stripped
@@ -5266,4 +5395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd0810cae56c514ca8dec8b8865556b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeRemaining: 6
+  _timeBtwWaves: 3
   _enemy1: {fileID: 8398284354831088985, guid: d60419259782e86479fb56442417feff, type: 3}

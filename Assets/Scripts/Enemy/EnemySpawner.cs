@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private float _timeRemaining;
+    
     private bool _timerIsRunning;
+    public float _timeRemaining;
+    public float _timeBtwWaves;
     private float x;
     private float y;
     [SerializeField] private GameObject _enemy1;
@@ -13,10 +15,10 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _timeRemaining = 3f;
+        _timerIsRunning = true;
         x = gameObject.transform.position.x;
         y = gameObject.transform.position.y;
-        InvokeRepeating("Spawn", 1f, 0.5f);
+        InvokeRepeating("Spawn", 1f, _timeBtwWaves);
     }
 
     // Update is called once per frame

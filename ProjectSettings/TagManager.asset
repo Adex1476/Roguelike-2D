@@ -5,11 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Obstacle
+  - Breakable
+  - Spawner
+  - Walls
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Contact
   - Water
   - UI
   - 

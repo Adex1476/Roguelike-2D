@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Collider2D _coll;
     [SerializeField] private SpriteRenderer _sr;
 
-    private bool _dashAvailable, _invencible;
+    private bool _dashAvailable; 
+    public bool _invencible;
     public float spe, invencibleDuration, dashCD, dashF;
 
     private float x, y, _invencibleTime;
@@ -25,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _invencibleTime = invencibleDuration / 0.1f;
+        _invencibleTime = 0.1f;
         _dashAvailable = true;
         _invencible = false;
     }
@@ -73,9 +74,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator invulnerability()
     {
         _invencible = true;
-        Physics2D.IgnoreLayerCollision(6, 7, true);
-        yield return new WaitForSeconds(invencibleDuration);
-        Physics2D.IgnoreLayerCollision(6, 7, false);
+        yield return new WaitForSeconds(_invencibleTime);
         _invencible = false;
         _anim.SetBool("isDashing", false);
         _rb.velocity = Vector2.zero;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
+    [SerializeField] private PlayerMovement _pm;
     private GameManager _gm;
     [SerializeField] private Animator _anim;
     private GameObject _player;
@@ -50,7 +51,7 @@ public class EnemyBullet : MonoBehaviour
             Destroy(collision.gameObject);
             Invoke("Destroy", 1f);
         }
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !_pm._invencible)
         {
             GameManager.Instance.dmg();
             _rb.constraints = RigidbodyConstraints2D.FreezePositionY;

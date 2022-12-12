@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] private PlayerMovement _pm;
     [SerializeField] private Animator animator;
     private GameManager _gm;
     private Transform _pos;
@@ -27,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !_pm._invencible)
         {
             GameManager.Instance.dmg();
             Destroy(this.GetComponent<CapsuleCollider2D>());

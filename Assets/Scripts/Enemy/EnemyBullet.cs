@@ -66,8 +66,5 @@ public class EnemyBullet : MonoBehaviour
         }
     }
 
-    void Destroy()
-    {
-        Destroy(gameObject);
-    }
+    void Destroy() { Destroy(gameObject); }
 }

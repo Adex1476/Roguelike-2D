@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance = null;
     public GameObject Player;
-    public GameObject Enemy;
+    public GameObject [] Enemies;
     private Text lifes;
     private Text enemies;
     private Text scrpoints;

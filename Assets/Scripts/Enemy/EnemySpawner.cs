@@ -11,10 +11,14 @@ public class EnemySpawner : MonoBehaviour
     private float x;
     private float y;
     [SerializeField] private GameObject _enemy1;
+    [SerializeField] private GameObject[] spawnPoints;
+    [SerializeField] private GameObject _enemy2;
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        var rdmSpawn = Random.Range(0, 4);
+        Instantiate(_enemy2, spawnPoints[rdmSpawn].transform.position, Quaternion.identity);
         _timerIsRunning = true;
         x = gameObject.transform.position.x;
         y = gameObject.transform.position.y;

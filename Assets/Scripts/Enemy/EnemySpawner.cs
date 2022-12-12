@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject _enemy1;
     [SerializeField] private GameObject[] spawnPoints;
     [SerializeField] private GameObject _enemy2;
+    [SerializeField] private Text _timeText;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
             if (_timeRemaining > 0)
             {
                 _timeRemaining -= Time.deltaTime;
+                DisplayTime(_timeRemaining);
             }
             else
             {
@@ -49,4 +52,12 @@ public class EnemySpawner : MonoBehaviour
     }
 
     Vector2 posSpawn() { return new Vector2(x, y); }
+
+    void DisplayTime(float timeToDisplay)
+    {
+        timeToDisplay += 1;
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        _timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
 }

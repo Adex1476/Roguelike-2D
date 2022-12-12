@@ -7,11 +7,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance = null;
+    [SerializeField] private HealthBar hb;
+    private PlayerData _pd;
     public GameObject Player;
     public GameObject [] Enemies;
     private Text lifes;
     private Text enemies;
     private Text scrpoints;
+    public int maxHp = 6;
     public int hp;
     private int _score;
     private int _highScore;
@@ -44,6 +47,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hp = maxHp;
+        hb.SetMaxHealth(maxHp);
+        
         updateCS();
         _enemiesRemaining = 0;
         score = 0;
@@ -58,6 +64,7 @@ public class GameManager : MonoBehaviour
     public int dmg()
     {
         hp--;
+        hb.SetHealth(hp);
         return hp;
     }
 

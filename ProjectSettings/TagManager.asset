@@ -9,6 +9,7 @@ TagManager:
   - Breakable
   - Spawner
   - Walls
+  - Fireball
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Contact
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - EnemyDMG
   - 
   - 
   - 

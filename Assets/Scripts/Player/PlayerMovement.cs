@@ -73,7 +73,9 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator invulnerability()
     {
         _invencible = true;
+        Physics2D.IgnoreLayerCollision(6, 7, true);
         yield return new WaitForSeconds(invencibleDuration);
+        Physics2D.IgnoreLayerCollision(6, 7, false);
         _invencible = false;
         _anim.SetBool("isDashing", false);
         _rb.velocity = Vector2.zero;

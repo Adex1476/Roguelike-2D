@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3629307040425859144}
   - component: {fileID: 3629307040425859145}
   - component: {fileID: 3629307040425859146}
-  - component: {fileID: 8163700481661034692}
-  m_Layer: 0
+  - component: {fileID: 1504644530858779872}
+  m_Layer: 7
   m_Name: Fireball
   m_TagString: Fireball
   m_Icon: {fileID: 0}
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 297035720, guid: b8a940d18cc58f047b1115bd2fc2a663, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -123,7 +123,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.5
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -145,7 +145,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1.1875}
   m_Direction: 0
---- !u!114 &8163700481661034692
+--- !u!114 &1504644530858779872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,9 +154,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3629307040425859125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5ad2a05ae31555488817eac2658ebbd, type: 3}
+  m_Script: {fileID: 11500000, guid: 9424490c94239b04687c13b1d1af1402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 3629307040425859144}
-  _rb: {fileID: 3629307040425859145}
-  _fb: {fileID: 3629307040425859125}
+  _anim: {fileID: 3629307040425859144}
+  force: 5

@@ -42,11 +42,12 @@ public class PlayerMovement : MonoBehaviour
     {  
         if (x != 0 || y != 0)
         {
+            m = Mov.Movement;
             dir = new Vector2(x, y);
             _rb.AddForce(dir * spe, ForceMode2D.Force);
         }
 
-        if (x == 0 && y == 0) { _rb.velocity = Vector2.zero; }
+        if (x == 0 && y == 0) { StopMovement(); }
 
         if (Input.GetKeyDown(KeyCode.Space) && _dashAvailable)
         {
@@ -56,6 +57,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void StopMovement()
+    {
+        m = Mov.Stop;
+        _rb.velocity = Vector2.zero;
+    }
     private void Dash()
     {
         m = Mov.Dash;
@@ -78,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         _invencible = false;
         _anim.SetBool("isDashing", false);
         _rb.velocity = Vector2.zero;
+        m = Mov.Stop;
     }
 
     public enum Mov { Movement, Stop, Dash }

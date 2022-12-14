@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public float _timeBtwWaves;
     private float x;
     private float y;
+    public float cont;
     [SerializeField] private GameObject _enemy1;
     [SerializeField] private GameObject[] spawnPoints;
     [SerializeField] private GameObject _enemy2;
@@ -42,6 +43,18 @@ public class EnemySpawner : MonoBehaviour
                 _timeRemaining = 0;
                 _timerIsRunning = false;
                 CancelInvoke();
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Bullet"))
+        {
+            cont += 1;
+            if (cont == 5)
+            {
+                Destroy(gameObject);
             }
         }
     }

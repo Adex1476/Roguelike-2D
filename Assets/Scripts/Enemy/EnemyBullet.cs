@@ -48,7 +48,6 @@ public class EnemyBullet : MonoBehaviour
             _rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             _anim.SetTrigger("Impact");
             Destroy(this.GetComponent<CapsuleCollider2D>());
-            Destroy(collision.gameObject);
             Invoke("Destroy", 1f);
         }
         if (collision.CompareTag("Player") && !_pm._invencible)
@@ -61,8 +60,7 @@ public class EnemyBullet : MonoBehaviour
             Invoke("Destroy", 1f);
             if (_gm.hp == 0)
             {
-                Destroy(collision.gameObject);
-                _gm.ReloadScene();
+                _gm.PlayerDeath();
             }
         }
     }

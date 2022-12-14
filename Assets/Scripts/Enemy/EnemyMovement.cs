@@ -37,8 +37,7 @@ public class EnemyMovement : MonoBehaviour
             Invoke("Destroy", 1f);
             if (_gm.hp == 0)
             {
-                Destroy(collision.gameObject);
-                _gm.ReloadScene();
+                _gm.PlayerDeath();
             }
         }
         else if (collision.CompareTag("Bullet"))

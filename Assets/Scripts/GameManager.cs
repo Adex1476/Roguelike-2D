@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance = null;
     [SerializeField] private HealthBar hb;
-    private PlayerData _pd;
+    [SerializeField] private PlayerData _pd;
+    [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private PlayerMovement _pm;
     public GameObject Player;
     public GameObject [] Enemies;
     private Text lifes;
@@ -68,6 +70,11 @@ public class GameManager : MonoBehaviour
         return hp;
     }
 
+    public void PlayerDeath()
+    {
+        StartCoroutine(Death());
+    }
+
     public void enemiesInS(int ekAux)
     {
         _enemiesRemaining += ekAux;
@@ -84,4 +91,15 @@ public class GameManager : MonoBehaviour
     public void updateCS() { _cameraSize = new Vector2(Camera.main.orthographicSize * Screen.width / Screen.height, Camera.main.orthographicSize); }
 
     public void ReloadScene() { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+
+    IEnumerator Death()
+    {
+        Player.GetComponent<PlayerMovement>().enabled = false;
+        Player.transform.GetChild(0).GetComponent<PlayerAim>().enabled = false;
+        _pd.anim.SetTrigger("Dead");
+        yield return new WaitForSeconds(1f);
+        Destroy(Player);
+        ReloadScene();
+    }
+
 }

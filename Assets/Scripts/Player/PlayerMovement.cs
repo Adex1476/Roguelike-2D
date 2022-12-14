@@ -4,75 +4,81 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
-    private Rigidbody2D rb;
-    
-    public float spe;
-    private bool dashAvailable;
-    private bool invencible;
-    public float invencibleDuration; 
-    public float dashCD;
-    public float dashF;
-    private float x;
-    private float y;
+    private Rigidbody2D _rb;
+    [SerializeField] private Animator _anim;
+    [SerializeField] private Collider2D _coll;
+    [SerializeField] private SpriteRenderer _sr;
 
-    private Vector2 dir = Vector2.right;
+    private bool _dashAvailable; 
+    public bool _invencible;
+    public float spe, invencibleDuration, dashCD, dashF;
+
+    private float x, y, _invencibleTime;
+
+    private Mov m;
+    private Vector2 dir;
+
+    void Awake()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        dashAvailable = true;
-        invencible = false;
+        _invencibleTime = 0.1f;
+        _dashAvailable = true;
+        _invencible = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update() 
     {
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
-
         Move();
     }
 
-    private void FixedUpdate() { rb.AddForce(Vector2.zero * spe, ForceMode2D.Force); }
-
     private void Move()
-    {
+    {  
         if (x != 0 || y != 0)
         {
-            dir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            transform.Translate(dir * Time.deltaTime * spe);
+            dir = new Vector2(x, y);
+            _rb.AddForce(dir * spe, ForceMode2D.Force);
         }
-      
-        if (x == 0 && y == 0) { rb.velocity = Vector2.zero; }
 
-        if (Input.GetKeyDown(KeyCode.Space) && dashAvailable)
+        if (x == 0 && y == 0) { _rb.velocity = Vector2.zero; }
+
+        if (Input.GetKeyDown(KeyCode.Space) && _dashAvailable)
         {
-            rb.velocity = Vector2.zero;
+            _rb.velocity = Vector2.zero;
+            _anim.SetBool("isDashing", true);
             Dash();
         }
     }
 
     private void Dash()
     {
-        rb.AddForce(dir.normalized * dashF, ForceMode2D.Impulse);
+        m = Mov.Dash;
+        _rb.AddForce(dir.normalized * dashF, ForceMode2D.Impulse);
         StartCoroutine(canDash());
         StartCoroutine(invulnerability());
     }
 
     IEnumerator canDash()
     {
-        dashAvailable = false;
+        _dashAvailable = false;
         yield return new WaitForSeconds(dashCD);
-        dashAvailable = true;
+        _dashAvailable = true;
     }
 
     IEnumerator invulnerability()
     {
-        invencible = true;
-        yield return new WaitForSeconds(invencibleDuration);
-        invencible = false;
-        rb.velocity = Vector2.zero;
+        _invencible = true;
+        yield return new WaitForSeconds(_invencibleTime);
+        _invencible = false;
+        _anim.SetBool("isDashing", false);
+        _rb.velocity = Vector2.zero;
     }
+
+    public enum Mov { Movement, Stop, Dash }
 }

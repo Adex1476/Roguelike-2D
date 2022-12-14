@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
     {
         Player.GetComponent<PlayerMovement>().enabled = false;
         Player.transform.GetChild(0).GetComponent<PlayerAim>().enabled = false;
+        _rb.freezeRotation = true;
         _pd.anim.SetTrigger("Dead");
         yield return new WaitForSeconds(1f);
         Destroy(Player);

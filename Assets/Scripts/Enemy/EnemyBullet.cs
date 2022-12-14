@@ -34,30 +34,14 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Walls") || collision.CompareTag("Obstacle"))
+        if (collision.CompareTag("Walls") || collision.CompareTag("Obstacle") || collision.CompareTag("Breakable"))
         {
-            _rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-            _rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-            _anim.SetTrigger("Impact");
-            Destroy(this.GetComponent<CapsuleCollider2D>());
-            Invoke("Destroy", 1f);
-        }
-        if (collision.CompareTag("Breakable"))
-        {
-            _rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-            _rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-            _anim.SetTrigger("Impact");
-            Destroy(this.GetComponent<CapsuleCollider2D>());
-            Invoke("Destroy", 1f);
+            CollisionBehaviour();
         }
         if (collision.CompareTag("Player") && !_pm._invencible)
         {
             GameManager.Instance.dmg();
-            _rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-            _rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-            _anim.SetTrigger("Impact");
-            Destroy(this.GetComponent<CapsuleCollider2D>());
-            Invoke("Destroy", 1f);
+            CollisionBehaviour();
             if (_gm.hp == 0)
             {
                 _gm.PlayerDeath();
@@ -66,4 +50,13 @@ public class EnemyBullet : MonoBehaviour
     }
 
     void Destroy() { Destroy(gameObject); }
+
+    void CollisionBehaviour()
+    {
+        _rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        _rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        _anim.SetTrigger("Impact");
+        Destroy(this.GetComponent<CapsuleCollider2D>());
+        Invoke("Destroy", 1f);
+    }
 }

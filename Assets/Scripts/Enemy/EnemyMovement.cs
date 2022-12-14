@@ -31,10 +31,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.CompareTag("Player") && !_pm._invencible)
         {
             GameManager.Instance.dmg();
-            Destroy(this.GetComponent<CapsuleCollider2D>());
-            _isDead = true;
-            animator.SetTrigger("Death");
-            Invoke("Destroy", 1f);
+            CollisionBehaviour();
             if (_gm.hp == 0)
             {
                 _gm.PlayerDeath();
@@ -42,11 +39,16 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (collision.CompareTag("Bullet"))
         {
-            Destroy(this.GetComponent<CapsuleCollider2D>());
-            _isDead = true;
-            animator.SetTrigger("Death");
-            Invoke("Destroy", 1f);
+            CollisionBehaviour();
         }
+    }
+
+    void CollisionBehaviour()
+    {
+        Destroy(this.GetComponent<CapsuleCollider2D>());
+        _isDead = true;
+        animator.SetTrigger("Death");
+        Invoke("Destroy", 1f);
     }
 
     private void Destroy() { Destroy(this.gameObject); }

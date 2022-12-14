@@ -8,7 +8,7 @@ Aquest és el meu RogueLike creat per a l'entrega del Repte 1 de la UF2. El game
 - Géneres: RogueLike, Indie, Acció, RPG.
 
 **CONTROLS**
-_Telat_
+_Teclat_
 - WASD: moviment del player
 - Mouse Mov: Apuntar
 - LeftClick: Disparar

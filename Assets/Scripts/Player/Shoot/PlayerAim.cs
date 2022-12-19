@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAim : MonoBehaviour
 {
+    [SerializeField] private Rigidbody2D _bulletPrefab;
     public Transform target;
     protected Vector2 dir;
     private float angle;
@@ -14,5 +15,16 @@ public class PlayerAim : MonoBehaviour
         dir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
         angle = Vector2.SignedAngle(Vector2.down, dir);
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Shoot();
+        }
     }
+
+    private void Shoot()
+    {
+        Rigidbody2D bullet = Instantiate(_bulletPrefab, target.position, Quaternion.identity);
+    }
+
 }

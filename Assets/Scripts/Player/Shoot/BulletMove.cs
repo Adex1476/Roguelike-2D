@@ -21,16 +21,19 @@ public class BulletMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        infiniteBullet = true;
         _firePoint = GameObject.Find("FirePoint").transform;
         _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         dir = (_mousePos - transform.position).normalized;
         angle = Vector2.SignedAngle(Vector2.left, dir);
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        rb.velocity = dir * _spe;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         float step = _spe * Time.deltaTime;
         if (infiniteBullet)
         {
@@ -39,7 +42,7 @@ public class BulletMove : MonoBehaviour
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, _mousePos, step * 10);
-        }
+        }*/
     }
 
     void OnTriggerEnter2D(Collider2D collision)

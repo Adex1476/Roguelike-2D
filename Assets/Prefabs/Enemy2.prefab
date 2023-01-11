@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 852182208410280547}
   m_Layer: 7
   m_Name: Enemy2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.04254079, y: -0.19143355}
@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0485e725fa45b8248b217566e27aab1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints: []
   _proj: {fileID: 3629307040425859125, guid: 56e017c465b6c82479e7f2d5b47f0e62, type: 3}
   _projPos: {fileID: 852182208604208626}
   _anim: {fileID: 852182208604208627}

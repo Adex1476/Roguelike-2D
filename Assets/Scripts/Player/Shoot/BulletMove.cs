@@ -5,32 +5,27 @@ using UnityEngine;
 public class BulletMove : MonoBehaviour
 {
     private float dmg;
-    private float _spe;
+    public float _spe;
     [SerializeField] private Rigidbody2D rb;
     private Transform _firePoint;
+
+
+    protected Vector2 dir;
+    private float angle;
     public bool infiniteBullet;
+    private Vector3 _mousePos;
 
-    private float _mouseX;
-    private float _mouseY;
-    private Vector3 _initialPos;
-
-    private Vector3 mousePosPix;
-    private Vector3 mousePos;
-
-    public Transform FirePoint { get => _firePoint; set => _firePoint = value; }
     public float Dmg { get => dmg; set => dmg = value; }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        mousePosPix = Input.mousePosition;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePosPix);
-
-        _mouseX = mousePos.x;
-        _mouseY = mousePos.y;
-
-        _initialPos = transform.position;
+        _firePoint = GameObject.Find("FirePoint").transform;
+        _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        dir = (_mousePos - transform.position).normalized;
+        angle = Vector2.SignedAngle(Vector2.left, dir);
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     // Update is called once per frame
@@ -39,20 +34,19 @@ public class BulletMove : MonoBehaviour
         float step = _spe * Time.deltaTime;
         if (infiniteBullet)
         {
-            rb.AddForce((mousePos - _initialPos) * step, ForceMode2D.Impulse);
+            rb.AddForce((_mousePos - _firePoint.position) * step, ForceMode2D.Impulse);
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, mousePos, step * 10);
+            transform.position = Vector3.MoveTowards(transform.position, _mousePos, step * 10);
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Walls"))
+        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Walls") || collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }
     }
-
 }

@@ -26,5 +26,4 @@ public class PlayerAim : MonoBehaviour
     {
         Rigidbody2D bullet = Instantiate(_bulletPrefab, target.position, Quaternion.identity);
     }
-
 }

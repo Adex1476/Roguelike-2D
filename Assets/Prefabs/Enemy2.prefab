@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 852182208410280556}
   - component: {fileID: 852182208410280546}
   - component: {fileID: 852182208410280547}
+  - component: {fileID: 1088884013270402342}
   m_Layer: 7
   m_Name: Enemy2
   m_TagString: Enemy
@@ -128,6 +129,28 @@ MonoBehaviour:
   _proj: {fileID: 3629307040425859125, guid: 56e017c465b6c82479e7f2d5b47f0e62, type: 3}
   _projPos: {fileID: 852182208604208626}
   _anim: {fileID: 852182208604208627}
+  animator: {fileID: 1088884013270402342}
+  cont: 0
+--- !u!95 &1088884013270402342
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852182208410280559}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b95cf4b3489936849be6136603ecaa85, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &852182208604208637
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +186,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &852182208604208627
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -180,7 +203,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!212 &852182208604208624
 SpriteRenderer:
   m_ObjectHideFlags: 0

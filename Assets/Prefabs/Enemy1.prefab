@@ -129,7 +129,7 @@ MonoBehaviour:
   animator: {fileID: 3872105754067390548}
 --- !u!95 &3872105754067390548
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -137,7 +137,7 @@ Animator:
   m_GameObject: {fileID: 8398284354831088985}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b95cf4b3489936849be6136603ecaa85, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7e9e94c108fbd6d4aa8fc5516092fa21, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -146,4 +146,4 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0

@@ -31,7 +31,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy1
+  m_Name: Enemy2
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Death
@@ -39,7 +39,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -125,7 +125,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 10e7519c6ae6b1b4fa2dc00ad2ee0b76, type: 2}
+  m_Motion: {fileID: 7400000, guid: acfae59fce880874abecba41cfeb05a8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

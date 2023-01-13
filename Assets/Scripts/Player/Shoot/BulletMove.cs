@@ -47,7 +47,7 @@ public class BulletMove : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Walls") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Breakable"))
+        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Walls") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Breakable") || collision.gameObject.CompareTag("Spawner"))
         {
             Destroy(gameObject);
         }

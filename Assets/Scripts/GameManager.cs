@@ -13,9 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerMovement _pm;
     public GameObject Player;
     public GameObject [] Enemies;
-    private Text lifes;
-    private Text enemies;
-    private Text scrpoints;
+    [SerializeField] private Text enemies;
+    [SerializeField] private Text scrpoints;
     public int maxHp = 6;
     public int hp;
     private int _score;
@@ -60,7 +59,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public int dmg()

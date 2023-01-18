@@ -8,6 +8,7 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private Transform _projPos;
     [SerializeField] private Animator _anim;
     [SerializeField] private Animator animator;
+    private GameManager _gm;
     private bool _isDead;
     private float timer;
     public int cont;
@@ -16,6 +17,7 @@ public class EnemyShoot : MonoBehaviour
     void Start()
     {
         _isDead = false;
+        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -52,5 +54,10 @@ public class EnemyShoot : MonoBehaviour
         Invoke("Destroy", 1f);
     }
 
-    private void Destroy() { Destroy(this.gameObject); }
+    private void Destroy() 
+    {
+        _gm.scorePoints(10);
+        _gm.enemiesInS(-1);
+        Destroy(this.gameObject); 
+    }
 }

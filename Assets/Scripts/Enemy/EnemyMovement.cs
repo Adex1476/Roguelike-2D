@@ -32,10 +32,7 @@ public class EnemyMovement : MonoBehaviour
         {
             GameManager.Instance.dmg();
             CollisionBehaviour();
-            if (_gm.hp == 0)
-            {
-                _gm.PlayerDeath();
-            }
+            if (_gm.hp == 0) { _gm.PlayerDeath(); }
         }
         else if (collision.CompareTag("Bullet"))
         {
@@ -51,5 +48,10 @@ public class EnemyMovement : MonoBehaviour
         Invoke("Destroy", 1f);
     }
 
-    private void Destroy() { Destroy(this.gameObject); }
+    private void Destroy() 
+    {
+        _gm.scorePoints(5);
+        _gm.enemiesInS(-1);
+        Destroy(this.gameObject); 
+    }
 }

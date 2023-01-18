@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 852182208410280546}
   - component: {fileID: 852182208410280547}
   - component: {fileID: 1088884013270402342}
-  m_Layer: 7
+  m_Layer: 20
   m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.04254079, y: -0.19143355}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 852182208604208626}
   - component: {fileID: 852182208604208627}
   - component: {fileID: 852182208604208624}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Wand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

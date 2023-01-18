@@ -9,19 +9,22 @@ public class EnemySpawner : MonoBehaviour
     private bool _timerIsRunning;
     public float _timeRemaining;
     public float _timeBtwWaves;
-    private float x;
-    private float y;
     public float cont;
+    private GameManager _gm;
     [SerializeField] private GameObject _enemy1;
     [SerializeField] private GameObject[] spawnPoints;
+    private float x;
+    private float y;
     [SerializeField] private GameObject _enemy2;
     [SerializeField] private Text _timeText;
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {
+        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         var rdmSpawn = Random.Range(0, 4);
         Instantiate(_enemy2, spawnPoints[rdmSpawn].transform.position, Quaternion.identity);
+        _gm.enemiesInS(1);
         _timerIsRunning = true;
         x = gameObject.transform.position.x;
         y = gameObject.transform.position.y;
@@ -52,19 +55,20 @@ public class EnemySpawner : MonoBehaviour
         if(collision.CompareTag("Bullet"))
         {
             cont += 1;
-            if (cont == 5)
-            {
-                Destroy(gameObject);
-            }
+            if (cont == 5) { Destroy(gameObject); }
         }
     }
 
     void Spawn()
     {
         Instantiate(_enemy1, posSpawn(), Quaternion.identity);
+        _gm.enemiesInS(1);
     }
 
-    Vector2 posSpawn() { return new Vector2(x, y); }
+    Vector2 posSpawn() 
+    { 
+        return new Vector2(x, y); 
+    }
 
     void DisplayTime(float timeToDisplay)
     {

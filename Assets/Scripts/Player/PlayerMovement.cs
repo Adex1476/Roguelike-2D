@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _invencibleTime = 0.1f;
+        _invencibleTime = 0.5f;
         _dashAvailable = true;
         _invencible = false;
     }
@@ -80,7 +80,9 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator invulnerability()
     {
         _invencible = true;
+        Physics2D.IgnoreLayerCollision(6, 7, true);
         yield return new WaitForSeconds(_invencibleTime);
+        Physics2D.IgnoreLayerCollision(6, 7, false);
         _invencible = false;
         _anim.SetBool("isDashing", false);
         _rb.velocity = Vector2.zero;

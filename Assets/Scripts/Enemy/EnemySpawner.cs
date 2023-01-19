@@ -13,18 +13,22 @@ public class EnemySpawner : MonoBehaviour
     private GameManager _gm;
     [SerializeField] private GameObject _enemy1;
     [SerializeField] private GameObject[] spawnPoints;
+    [SerializeField] private GameObject _enemy2;
+    private int maxEnemies = 4;
+    private int minEnemies = 1;
+    private int enemies;
+    private int max;
     private float x;
     private float y;
-    [SerializeField] private GameObject _enemy2;
     [SerializeField] private Text _timeText;
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        var rdmSpawn = Random.Range(0, 4);
-        Instantiate(_enemy2, spawnPoints[rdmSpawn].transform.position, Quaternion.identity);
-        _gm.enemiesInS(1);
+        max = 0;
+        enemies = Random.Range(minEnemies, maxEnemies);
+        StartCoroutine(Spawn2());
         _timerIsRunning = true;
         x = gameObject.transform.position.x;
         y = gameObject.transform.position.y;
@@ -63,6 +67,25 @@ public class EnemySpawner : MonoBehaviour
     {
         Instantiate(_enemy1, posSpawn(), Quaternion.identity);
         _gm.enemiesInS(1);
+    }
+
+    IEnumerator Spawn2()
+    {
+        while (max < enemies)
+        {
+            var rndPos = Random.Range(0, spawnPoints.Length);
+            yield return new WaitForSeconds(0.1f);
+            var theNewPos = spawnPoints[rndPos];
+            GameObject go = GameObject.Instantiate(_enemy2);
+            go.transform.position = theNewPos.transform.position;
+            max += 1;
+            _gm.enemiesInS(1);
+        }
+
+        /*
+        Instantiate(_enemy2, spawnPoints[_rdmSpawn].transform.position, Quaternion.identity);
+        */
+        
     }
 
     Vector2 posSpawn() 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAim : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _bulletPrefab;
+    [SerializeField] private WeaponSO currentWeapon;
     public Transform target;
     protected Vector2 dir;
     private float angle;
@@ -24,6 +25,7 @@ public class PlayerAim : MonoBehaviour
 
     private void Shoot()
     {
-        Rigidbody2D bullet = Instantiate(_bulletPrefab, target.position, Quaternion.identity);
+        BulletMove bullet = Instantiate(_bulletPrefab, target.position, Quaternion.identity).GetComponent<BulletMove>();
+        bullet.Dmg = currentWeapon.dmg;
     }
 }

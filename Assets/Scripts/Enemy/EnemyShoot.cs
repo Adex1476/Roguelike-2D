@@ -41,8 +41,9 @@ public class EnemyShoot : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            cont += 1;
-            if (cont == 5) { CollisionBehaviour(); }
+            int bulletDmg = collision.gameObject.GetComponent<BulletMove>().Dmg;
+            cont += bulletDmg;
+            if (cont >= 14) { CollisionBehaviour(); }
         }
     }
 
@@ -57,7 +58,6 @@ public class EnemyShoot : MonoBehaviour
     private void Destroy() 
     {
         _gm.scorePoints(10);
-        _gm.enemiesInS(-1);
         Destroy(this.gameObject); 
     }
 }

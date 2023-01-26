@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform _pos;
     private float _step;
     private bool _isDead;
+    public int cont;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,9 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (collision.CompareTag("Bullet"))
         {
-            CollisionBehaviour();
+            int bulletDmg = collision.gameObject.GetComponent<BulletMove>().Dmg;
+            cont += bulletDmg;
+            if (cont >= 7) { CollisionBehaviour(); }
         }
     }
 
@@ -51,7 +54,6 @@ public class EnemyMovement : MonoBehaviour
     private void Destroy() 
     {
         _gm.scorePoints(5);
-        _gm.enemiesInS(-1);
         Destroy(this.gameObject); 
     }
 }

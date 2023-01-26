@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
-    private float dmg;
+    private int dmg = 7;
     public float _spe;
     [SerializeField] private Rigidbody2D rb;
     private Transform _firePoint;
@@ -15,7 +15,7 @@ public class BulletMove : MonoBehaviour
     public bool infiniteBullet;
     private Vector3 _mousePos;
 
-    public float Dmg { get => dmg; set => dmg = value; }
+    public int Dmg { get => dmg; set => dmg = value; }
 
 
     // Start is called before the first frame update

@@ -26,9 +26,8 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     { 
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        max = 0;
-        enemies = Random.Range(minEnemies, maxEnemies);
-        StartCoroutine(Spawn2());
+        var rdmSpawn = Random.Range(0, 4);
+        Instantiate(_enemy2, spawnPoints[rdmSpawn].transform.position, Quaternion.identity);
         _timerIsRunning = true;
         x = gameObject.transform.position.x;
         y = gameObject.transform.position.y;
@@ -66,26 +65,6 @@ public class EnemySpawner : MonoBehaviour
     void Spawn()
     {
         Instantiate(_enemy1, posSpawn(), Quaternion.identity);
-        _gm.enemiesInS(1);
-    }
-
-    IEnumerator Spawn2()
-    {
-        while (max < enemies)
-        {
-            var rndPos = Random.Range(0, spawnPoints.Length);
-            yield return new WaitForSeconds(0.1f);
-            var theNewPos = spawnPoints[rndPos];
-            GameObject go = GameObject.Instantiate(_enemy2);
-            go.transform.position = theNewPos.transform.position;
-            max += 1;
-            _gm.enemiesInS(1);
-        }
-
-        /*
-        Instantiate(_enemy2, spawnPoints[_rdmSpawn].transform.position, Quaternion.identity);
-        */
-        
     }
 
     Vector2 posSpawn() 

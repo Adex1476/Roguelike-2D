@@ -74,12 +74,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Death());
     }
 
-    public void enemiesInS(int ekAux)
-    {
-        _enemiesRemaining += ekAux;
-        enemies.text = "Enemies : " + _enemiesRemaining;
-    }
-
     public void scorePoints(int scoreAux)
     {
         score += scoreAux;

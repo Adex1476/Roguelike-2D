@@ -3523,7 +3523,7 @@ GameObject:
   - component: {fileID: 1071174124}
   - component: {fileID: 1071174123}
   m_Layer: 5
-  m_Name: EnemiesRemaining
+  m_Name: RoomCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3582,7 +3582,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Enemies:'
+  m_Text: 'Completed rooms:'
 --- !u!222 &1071174124
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6281,6 +6281,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 481984350356963943, guid: 9a5aa72bb033aca4b9c0857869c5228b,
+        type: 3}
+      propertyPath: currentWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a256a0a65cfc0f4f991ae1304126f32,
+        type: 2}
     - target: {fileID: 481984350651384563, guid: 9a5aa72bb033aca4b9c0857869c5228b,
         type: 3}
       propertyPath: m_Layer

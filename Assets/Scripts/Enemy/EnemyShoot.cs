@@ -10,6 +10,7 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private Animator animator;
     private GameManager _gm;
     private bool _isDead;
+    private bool _isStunned;
     private float timer;
     public int cont;
 
@@ -41,7 +42,7 @@ public class EnemyShoot : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            int bulletDmg = collision.gameObject.GetComponent<BulletMove>().Dmg;
+            int bulletDmg = collision.gameObject.GetComponent<Bullet>().Dmg;
             cont += bulletDmg;
             if (cont >= 14) { CollisionBehaviour(); }
         }

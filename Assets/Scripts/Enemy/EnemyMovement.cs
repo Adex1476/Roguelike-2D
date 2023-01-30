@@ -37,7 +37,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (collision.CompareTag("Bullet"))
         {
-            int bulletDmg = collision.gameObject.GetComponent<BulletMove>().Dmg;
+            int bulletDmg = collision.gameObject.GetComponent<Bullet>().Dmg;
             cont += bulletDmg;
             if (cont >= 7) { CollisionBehaviour(); }
         }

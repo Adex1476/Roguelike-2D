@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ff1b8e4a7f52449828896360ac7c9e, type: 3}
   m_Name: BurstShootWP
   m_EditorClassIdentifier: 
-  name: 
+  name: BurstShoot
   itemT: 0
   price: 300
   img: {fileID: 0}
+  Bullet: {fileID: 8094752461408700325, guid: ff77361c5ff136d4dbd19edc6651aea1, type: 3}
   dmg: 20
   bulletsNum: 1
-  bulletsLeft: 12
-  bulletLoader: 24
+  dispersionAngle: 0
+  bulletLoader: 20
+  rateOfFire: 1
+  knockback: 20
+  stunTime: 0

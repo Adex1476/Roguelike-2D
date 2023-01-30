@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemListSO : MonoBehaviour
+[CreateAssetMenu(fileName = "ItemListSO", menuName = "ScriptableObjects/ItemListSO", order = 1)]
+public class ItemListSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<ItemSO> Items;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public ItemSO randomItem() { return Items[Random.Range(0, Items.Count)]; }
 }

@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMove : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    private int dmg = 7;
+    private int dmg;
+    private float stunTime;
     public float _spe;
     [SerializeField] private Rigidbody2D rb;
     private Transform _firePoint;
-
-
     protected Vector2 dir;
     private float angle;
     public bool infiniteBullet;
     private Vector3 _mousePos;
 
     public int Dmg { get => dmg; set => dmg = value; }
+    public float Stun { get => stunTime; set => stunTime = value; }
 
 
     // Start is called before the first frame update
@@ -33,16 +33,7 @@ public class BulletMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        float step = _spe * Time.deltaTime;
-        if (infiniteBullet)
-        {
-            rb.AddForce((_mousePos - _firePoint.position) * step, ForceMode2D.Impulse);
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, _mousePos, step * 10);
-        }*/
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision)

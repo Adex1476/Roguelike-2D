@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ff1b8e4a7f52449828896360ac7c9e, type: 3}
   m_Name: MultiShootWP
   m_EditorClassIdentifier: 
-  name: 
+  name: MultiShoot
   itemT: 0
   price: 150
   img: {fileID: 0}
-  dmg: 5
+  Bullet: {fileID: 8094752461408700325, guid: 4899c4a8ecb3094468ca7a25b169190b, type: 3}
+  dmg: 7
   bulletsNum: 3
-  bulletsLeft: 60
+  dispersionAngle: 20
   bulletLoader: 120
+  rateOfFire: 1
+  knockback: 5
+  stunTime: 0

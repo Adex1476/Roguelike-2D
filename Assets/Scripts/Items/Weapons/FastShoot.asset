@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78ff1b8e4a7f52449828896360ac7c9e, type: 3}
-  m_Name: NormalShootWP
+  m_Name: FastShoot
   m_EditorClassIdentifier: 
-  name: NormalShoot
+  name: FastShoot
   itemT: 0
-  price: 0
+  price: 150
   img: {fileID: 0}
-  Bullet: {fileID: 8094752461408700325, guid: 4899c4a8ecb3094468ca7a25b169190b, type: 3}
-  dmg: 7
+  Bullet: {fileID: 8094752461408700325, guid: d90150d02493d1946b24943bcc7fe232, type: 3}
+  dmg: 1
   bulletsNum: 1
   dispersionAngle: 0
-  bulletLoader: 40
-  rateOfFire: 2
+  bulletLoader: 80
+  rateOfFire: 8
   knockback: 0
   stunTime: 0

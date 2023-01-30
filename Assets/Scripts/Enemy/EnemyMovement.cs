@@ -10,12 +10,14 @@ public class EnemyMovement : MonoBehaviour
     private Transform _pos;
     private float _step;
     private bool _isDead;
+    private bool _isStunned;
     public int cont;
 
     // Start is called before the first frame update
     void Start()
     {
         _isDead = false;
+        _isStunned = false;
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         _pos = GameObject.Find("Player").transform;
     }
@@ -24,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         _step = 2f * Time.deltaTime;
-        if (_pos != null && !_isDead) { transform.position = Vector2.MoveTowards(transform.position, _pos.position, _step); }
+        if (_pos != null && !_isDead && !_isStunned) { transform.position = Vector2.MoveTowards(transform.position, _pos.position, _step); }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

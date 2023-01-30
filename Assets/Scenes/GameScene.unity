@@ -6283,9 +6283,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 481984350356963943, guid: 9a5aa72bb033aca4b9c0857869c5228b,
         type: 3}
+      propertyPath: _playerRB
+      value: 
+      objectReference: {fileID: 1211326920}
+    - target: {fileID: 481984350356963943, guid: 9a5aa72bb033aca4b9c0857869c5228b,
+        type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 7042207737978295269, guid: 4899c4a8ecb3094468ca7a25b169190b,
+        type: 3}
+    - target: {fileID: 481984350356963943, guid: 9a5aa72bb033aca4b9c0857869c5228b,
+        type: 3}
       propertyPath: currentWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 2a256a0a65cfc0f4f991ae1304126f32,
+      objectReference: {fileID: 11400000, guid: 4191d87c2909c38449716b693e153c5f,
         type: 2}
     - target: {fileID: 481984350651384563, guid: 9a5aa72bb033aca4b9c0857869c5228b,
         type: 3}

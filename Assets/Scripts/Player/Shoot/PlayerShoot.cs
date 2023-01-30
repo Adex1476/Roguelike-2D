@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D _bulletPrefab;
+    [SerializeField] private Rigidbody2D _playerRB;
     [SerializeField] private WeaponSO currentWeapon;
     private bool canShoot = true;
     public Transform target;
@@ -14,7 +14,7 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _bulletPrefab = currentWeapon.Bullet.GetComponent<Rigidbody2D>();
+
         dir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
         initAngle = Vector2.SignedAngle(Vector2.down, dir);
         transform.rotation = Quaternion.AngleAxis(initAngle, Vector3.forward);
@@ -27,11 +27,12 @@ public class PlayerShoot : MonoBehaviour
     private void Shoot()
     {
         dir = (target.position - transform.position).normalized;
+        _playerRB.AddForce(-dir * currentWeapon.knockback, ForceMode2D.Impulse);
         initAngle = Vector2.SignedAngle(Vector2.down, dir) + currentWeapon.dispersionAngle / 2;
         for (int i = 0; i < currentWeapon.bulletsNum; i++)
         {
             float angle = initAngle - currentWeapon.bulletSplit * (currentWeapon.bulletsNum > 1 ? i : 1);
-            Bullet bullet = Instantiate(_bulletPrefab, target.position, Quaternion.identity).GetComponent<Bullet>();
+            Bullet bullet = Instantiate(currentWeapon.Bullet, target.position, Quaternion.identity).GetComponent<Bullet>();
             bullet.Dmg = currentWeapon.dmg;
             bullet.Stun = currentWeapon.stunTime;
         }

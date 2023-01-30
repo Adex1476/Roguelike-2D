@@ -26,8 +26,7 @@ public class Bullet : MonoBehaviour
         _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         dir = (_mousePos - transform.position).normalized;
         angle = Vector2.SignedAngle(Vector2.left, dir);
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        rb.velocity = dir * _spe;
+        rb.velocity = -transform.right * _spe;
     }
 
     // Update is called once per frame

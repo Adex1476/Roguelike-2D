@@ -17,7 +17,7 @@ MonoBehaviour:
   price: 150
   img: {fileID: 0}
   Bullet: {fileID: 8094752461408700325, guid: d90150d02493d1946b24943bcc7fe232, type: 3}
-  dmg: 1
+  dmg: 5
   bulletsNum: 1
   dispersionAngle: 0
   bulletLoader: 80

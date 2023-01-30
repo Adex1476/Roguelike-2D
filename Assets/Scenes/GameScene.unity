@@ -3144,6 +3144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635369, guid: 6d9a1504606c57143b1a8bbc2249aabe,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 6d9a1504606c57143b1a8bbc2249aabe,
+        type: 3}
       propertyPath: m_TagString
       value: Spawner
       objectReference: {fileID: 0}
@@ -5407,6 +5412,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2055102311959635369, guid: 3fcd8726c7cd53345947949baefbab35,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055102311959635369, guid: 3fcd8726c7cd53345947949baefbab35,
+        type: 3}
       propertyPath: m_TagString
       value: Spawner
       objectReference: {fileID: 0}
@@ -6296,7 +6306,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 4191d87c2909c38449716b693e153c5f,
+      objectReference: {fileID: 11400000, guid: ba406249945563f42a4d21e0776bd542,
         type: 2}
     - target: {fileID: 481984350651384563, guid: 9a5aa72bb033aca4b9c0857869c5228b,
         type: 3}

@@ -11,6 +11,7 @@ public class EnemyShoot : MonoBehaviour
     private GameManager _gm;
     private bool _isDead;
     private bool _isStunned;
+    private float _stunTime;
     private float timer;
     public int cont;
 
@@ -18,6 +19,7 @@ public class EnemyShoot : MonoBehaviour
     void Start()
     {
         _isDead = false;
+        _isStunned = false;
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -25,7 +27,7 @@ public class EnemyShoot : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 2f)
+        if (timer > 2f && !_isStunned)
         {
             timer = 0;
             Shoot();
@@ -43,8 +45,11 @@ public class EnemyShoot : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             int bulletDmg = collision.gameObject.GetComponent<Bullet>().Dmg;
+            _stunTime = collision.gameObject.GetComponent<Bullet>().Stun;
             cont += bulletDmg;
-            if (cont >= 14) { CollisionBehaviour(); }
+            if (cont >= 30) { CollisionBehaviour(); }
+            if(_stunTime > 0f) 
+                StartCoroutine(StunBehaviour());
         }
     }
 
@@ -54,6 +59,15 @@ public class EnemyShoot : MonoBehaviour
         _isDead = true;
         animator.SetTrigger("Death");
         Invoke("Destroy", 1f);
+    }
+
+    IEnumerator StunBehaviour()
+    {
+        _isStunned = true;
+        animator.SetBool("Stunned", true);
+        yield return new WaitForSeconds(_stunTime);
+        animator.SetBool("Stunned", false);
+        _isStunned = false;
     }
 
     private void Destroy() 

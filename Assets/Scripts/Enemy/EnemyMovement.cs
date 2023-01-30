@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     private float _step;
     private bool _isDead;
     private bool _isStunned;
+    private float _stunTime;
     public int cont;
 
     // Start is called before the first frame update
@@ -40,8 +41,11 @@ public class EnemyMovement : MonoBehaviour
         else if (collision.CompareTag("Bullet"))
         {
             int bulletDmg = collision.gameObject.GetComponent<Bullet>().Dmg;
+            _stunTime = collision.gameObject.GetComponent<Bullet>().Stun;
             cont += bulletDmg;
-            if (cont >= 7) { CollisionBehaviour(); }
+            if (cont >= 10) { CollisionBehaviour(); }
+            if (_stunTime > 0f)
+                StartCoroutine(StunBehaviour());
         }
     }
 
@@ -51,6 +55,15 @@ public class EnemyMovement : MonoBehaviour
         _isDead = true;
         animator.SetTrigger("Death");
         Invoke("Destroy", 1f);
+    }
+
+    IEnumerator StunBehaviour()
+    {
+        _isStunned = true;
+        animator.SetBool("Stunned", true);
+        yield return new WaitForSeconds(_stunTime);
+        animator.SetBool("Stunned", false);
+        _isStunned = false;
     }
 
     private void Destroy() 

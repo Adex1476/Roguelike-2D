@@ -146,6 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f1cc5d23133314aa5ab9e84f061476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spe: 40
+  _spe: 25
   rb: {fileID: 7042207737978295269}
   infiniteBullet: 1

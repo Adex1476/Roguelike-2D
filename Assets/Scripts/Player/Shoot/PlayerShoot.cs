@@ -32,7 +32,7 @@ public class PlayerShoot : MonoBehaviour
         for (int i = 0; i < currentWeapon.bulletsNum; i++)
         {
             float angle = initAngle - currentWeapon.bulletSplit * (currentWeapon.bulletsNum > 1 ? i : 1);
-            Bullet bullet = Instantiate(currentWeapon.Bullet, target.position, Quaternion.identity).GetComponent<Bullet>();
+            Bullet bullet = Instantiate(currentWeapon.Bullet, target.position, Quaternion.AngleAxis(angle + 90, Vector3.forward)).GetComponent<Bullet>();
             bullet.Dmg = currentWeapon.dmg;
             bullet.Stun = currentWeapon.stunTime;
         }

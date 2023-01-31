@@ -5521,12 +5521,14 @@ MonoBehaviour:
   _pd: {fileID: 1211326922}
   _rb: {fileID: 1211326920}
   _pm: {fileID: 1211326923}
+  _ps: {fileID: 1828187319}
   Player: {fileID: 1211326919}
   Enemies:
   - {fileID: 8398284354831088985, guid: d60419259782e86479fb56442417feff, type: 3}
   - {fileID: 852182208410280559, guid: 0b9dfc5115df93d4f90cde6c3de59da8, type: 3}
   enemies: {fileID: 1071174123}
   scrpoints: {fileID: 608635318}
+  ammo: {fileID: 768468915}
   maxHp: 5
   hp: 0
 --- !u!4 &1500977005
@@ -5894,6 +5896,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1721501443}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1828187319 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 481984350356963943, guid: 9a5aa72bb033aca4b9c0857869c5228b,
+    type: 3}
+  m_PrefabInstance: {fileID: 481984351024256517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37578ffa958776b49a7cf4b1c0ef466b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1842282925
 GameObject:
   m_ObjectHideFlags: 0
@@ -6306,7 +6320,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: ba406249945563f42a4d21e0776bd542,
+      objectReference: {fileID: 11400000, guid: 6afb367f9383e254296cbdb2de39bdf2,
         type: 2}
     - target: {fileID: 481984350651384563, guid: 9a5aa72bb033aca4b9c0857869c5228b,
         type: 3}

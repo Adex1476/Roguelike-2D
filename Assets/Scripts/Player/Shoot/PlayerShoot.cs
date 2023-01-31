@@ -6,19 +6,33 @@ public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _playerRB;
     [SerializeField] private WeaponSO currentWeapon;
-    private bool canShoot = true;
+    private bool canShoot;
+    private bool noAmmoLeft;
+    public int currentAmmo;
+    public int maxAmmo;
     public Transform target;
     protected Vector2 dir;
     private float initAngle;
 
+    void Start()
+    {
+        canShoot = true;
+        noAmmoLeft = false;
+        maxAmmo = currentWeapon.bulletLoader;
+        currentAmmo = maxAmmo;
+    }
+
     // Update is called once per frame
     void Update()
     {
-
         dir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
         initAngle = Vector2.SignedAngle(Vector2.down, dir);
         transform.rotation = Quaternion.AngleAxis(initAngle, Vector3.forward);
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
+        if (currentAmmo <= 0)
+        {
+            noAmmoLeft = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot && !noAmmoLeft)
         {
             Shoot();
         }
@@ -36,6 +50,7 @@ public class PlayerShoot : MonoBehaviour
             bullet.Dmg = currentWeapon.dmg;
             bullet.Stun = currentWeapon.stunTime;
         }
+        currentAmmo -= currentWeapon.bulletsNum;
         StartCoroutine(cdShoot());
     }
 
@@ -45,5 +60,4 @@ public class PlayerShoot : MonoBehaviour
         yield return new WaitForSeconds(currentWeapon.bulletCD);
         canShoot = true;
     }
-
 }

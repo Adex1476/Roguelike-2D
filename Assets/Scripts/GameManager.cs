@@ -11,14 +11,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerData _pd;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private PlayerMovement _pm;
+    [SerializeField] private PlayerShoot _ps;
     public GameObject Player;
     public GameObject [] Enemies;
     [SerializeField] private Text enemies;
     [SerializeField] private Text scrpoints;
+    [SerializeField] private Text ammo;
     public int maxHp = 6;
     public int hp;
     private int _score;
     private int _highScore;
+    private int cAmmo;
+    private int mAmmo;
     private int _enemiesRemaining;
     private Vector2 _cameraSize;
 
@@ -39,15 +43,13 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         _instance = this;
-
-        score = 0;
-        _enemiesRemaining = 0;
         highScore = PlayerPrefs.GetInt("highScore", highScore);
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        mAmmo = _ps.maxAmmo;
         hp = maxHp;
         hb.SetMaxHealth(maxHp);
         
@@ -59,7 +61,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        cAmmo = _ps.currentAmmo;
+        showCurrentAmmo();
     }
 
     public int dmg()
@@ -80,6 +83,10 @@ public class GameManager : MonoBehaviour
         if (scrpoints != null) { scrpoints.text = "Score : " + score; }
     }
 
+    public void showCurrentAmmo()
+    {
+        if (ammo != null) { ammo.text = "Ammo: " + cAmmo + "/" + mAmmo; }
+    }
 
     public void updateCS() { _cameraSize = new Vector2(Camera.main.orthographicSize * Screen.width / Screen.height, Camera.main.orthographicSize); }
 
@@ -95,5 +102,4 @@ public class GameManager : MonoBehaviour
         Destroy(Player);
         ReloadScene();
     }
-
 }

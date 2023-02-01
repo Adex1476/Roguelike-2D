@@ -15,7 +15,7 @@ MonoBehaviour:
   name: MultiShoot
   itemT: 0
   price: 150
-  img: {fileID: 21300000, guid: e79a9e9d6396eba438900afb0357e808, type: 3}
+  img: {fileID: 21300000, guid: 37616095ebf53744c950962f33663458, type: 3}
   Bullet: {fileID: 8094752461408700325, guid: 4899c4a8ecb3094468ca7a25b169190b, type: 3}
   dmg: 7
   bulletsNum: 3

@@ -15,7 +15,7 @@ MonoBehaviour:
   name: NormalShoot
   itemT: 0
   price: 0
-  img: {fileID: 21300000, guid: 9a397e83c4c3c994c988babb654f2b5d, type: 3}
+  img: {fileID: 21300000, guid: 944eece0a3c26194d96c7c96dd48f94a, type: 3}
   Bullet: {fileID: 8094752461408700325, guid: 4899c4a8ecb3094468ca7a25b169190b, type: 3}
   dmg: 7
   bulletsNum: 1

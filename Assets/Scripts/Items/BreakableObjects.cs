@@ -5,6 +5,7 @@ using UnityEngine;
 public class BreakableObjects : MonoBehaviour
 {
     private int cont;
+    private int _cont;
     private GameManager _gm;
     private Vector2 pos;
     private int rdm;
@@ -18,7 +19,7 @@ public class BreakableObjects : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet") || collision.CompareTag("Fireball"))
+        if (collision.CompareTag("Bullet"))
         {
             int bulletDmg = collision.gameObject.GetComponent<Bullet>().Dmg;
             cont += bulletDmg;
@@ -33,6 +34,11 @@ public class BreakableObjects : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
+        }
+        else if (collision.CompareTag("Fireball"))
+        {
+            _cont += 1;
+            if(_cont == 5) { Destroy(gameObject); }
         }
     }
 }

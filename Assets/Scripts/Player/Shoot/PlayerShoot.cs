@@ -14,7 +14,7 @@ public class PlayerShoot : MonoBehaviour
     protected Vector2 dir;
     private float initAngle;
 
-    void Start()
+    void Awake()
     {
         canShoot = true;
         noAmmoLeft = false;

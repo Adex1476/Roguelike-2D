@@ -32,6 +32,7 @@ public class PlayerShoot : MonoBehaviour
         {
             noAmmoLeft = true;
         }
+        if (Input.GetKeyDown(KeyCode.R)) { currentAmmo = maxAmmo; }
         if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot && !noAmmoLeft)
         {
             Shoot();

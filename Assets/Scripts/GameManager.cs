@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerMovement _pm;
     [SerializeField] private PlayerShoot _ps;
     public GameObject Player;
+    public GameObject Item;
+    public ItemListSO DroppableItems;
     public GameObject [] Enemies;
     [SerializeField] private Text enemies;
     [SerializeField] private Text scrpoints;
@@ -86,6 +88,12 @@ public class GameManager : MonoBehaviour
     public void showCurrentAmmo()
     {
         if (ammo != null) { ammo.text = "Ammo: " + cAmmo + "/" + mAmmo; }
+    }
+
+    public void InstantiateDrop(Vector2 pos)
+    {
+        GameObject go = Instantiate(Item, pos, Quaternion.identity);
+        go.GetComponent<DropScript>().itemInfo = DroppableItems.randomItem();
     }
 
     public void updateCS() { _cameraSize = new Vector2(Camera.main.orthographicSize * Screen.width / Screen.height, Camera.main.orthographicSize); }

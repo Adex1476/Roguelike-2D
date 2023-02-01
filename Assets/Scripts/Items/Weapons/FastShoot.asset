@@ -15,7 +15,7 @@ MonoBehaviour:
   name: FastShoot
   itemT: 0
   price: 150
-  img: {fileID: 0}
+  img: {fileID: 21300000, guid: 5ff9fd1dfa3921644a587a08e82b9e1c, type: 3}
   Bullet: {fileID: 8094752461408700325, guid: d90150d02493d1946b24943bcc7fe232, type: 3}
   dmg: 5
   bulletsNum: 1

@@ -15,7 +15,7 @@ MonoBehaviour:
   name: BurstShoot
   itemT: 0
   price: 300
-  img: {fileID: 0}
+  img: {fileID: 21300004, guid: 947c0cbf176869a45b7fd547776a2b0c, type: 3}
   Bullet: {fileID: 8094752461408700325, guid: ff77361c5ff136d4dbd19edc6651aea1, type: 3}
   dmg: 20
   bulletsNum: 1

@@ -2921,7 +2921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &672003903
 Transform:
   m_ObjectHideFlags: 0
@@ -5523,6 +5523,8 @@ MonoBehaviour:
   _pm: {fileID: 1211326923}
   _ps: {fileID: 1828187319}
   Player: {fileID: 1211326919}
+  Item: {fileID: 1693519582576637323, guid: 696edf00d91196e499b197d2ca5b4e73, type: 3}
+  DroppableItems: {fileID: 11400000, guid: 2283d9f90742553409e531725e624541, type: 2}
   Enemies:
   - {fileID: 8398284354831088985, guid: d60419259782e86479fb56442417feff, type: 3}
   - {fileID: 852182208410280559, guid: 0b9dfc5115df93d4f90cde6c3de59da8, type: 3}
@@ -6320,7 +6322,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 6afb367f9383e254296cbdb2de39bdf2,
+      objectReference: {fileID: 11400000, guid: ba406249945563f42a4d21e0776bd542,
         type: 2}
     - target: {fileID: 481984350651384563, guid: 9a5aa72bb033aca4b9c0857869c5228b,
         type: 3}

@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Dash Cooldown Reduction
   itemT: 0
   price: 350
-  img: {fileID: 21300000, guid: 602b72d4617c3694aa94419fc1b68e04, type: 3}
+  img: {fileID: 21300000, guid: eb89be3bfc343e649bb03220f77012d3, type: 3}
   upgradeType: 1
   upgradeBoost: 1

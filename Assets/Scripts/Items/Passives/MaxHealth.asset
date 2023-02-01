@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Max Health Increase
   itemT: 0
   price: 500
-  img: {fileID: 0}
+  img: {fileID: 21300000, guid: 67adf805a0971ec4e932987b18d6ee10, type: 3}
   upgradeType: 2
   upgradeBoost: 25

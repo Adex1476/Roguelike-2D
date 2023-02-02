@@ -12,7 +12,7 @@ public class BreakableObjects : MonoBehaviour
 
     void Start()
     {
-        rdm = Random.Range(0, 5);
+        rdm = Random.Range(0, 10);
         pos = transform.position;
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }

@@ -55,6 +55,18 @@ public class PlayerShoot : MonoBehaviour
         StartCoroutine(cdShoot());
     }
 
+    public void WeaponChange(WeaponSO weapon)
+    {
+        gameObject.SetActive(true);
+        currentWeapon = weapon;
+        canShoot = true;
+    }
+
+    public void WeaponDelete()
+    {
+        gameObject.SetActive(false);
+    }
+
     protected IEnumerator cdShoot()
     {
         canShoot = false;

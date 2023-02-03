@@ -5,10 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ConsumItem", menuName = "ScriptableObjects/ConsumItem", order = 3)]
 public class ConsumSO : ItemSO
 {
-    public type consumType;
+    public consumType ct;
     public int quantity;
 
-    public enum type
+    private void Awake() { itemT = itemType.Consum; }
+
+    public enum consumType
     {
         Potion
     }

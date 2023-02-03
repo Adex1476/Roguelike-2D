@@ -14,6 +14,8 @@ public class WeaponSO : ItemSO
     public float knockback;
     public float stunTime;
 
+    private void Awake() { itemT = itemType.Weapon; }
+
     public float bulletCD { get { return 1 / rateOfFire; } }
     public float bulletSplit { get { return dispersionAngle / (bulletsNum > 1 ? bulletsNum - 1 : 2); } }
 }

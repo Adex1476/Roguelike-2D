@@ -135,8 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37578ffa958776b49a7cf4b1c0ef466b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 7042207737978295269, guid: ff77361c5ff136d4dbd19edc6651aea1,
-    type: 3}
+  _playerRB: {fileID: 0}
+  currentWeapon: {fileID: 0}
+  currentAmmo: 0
+  maxAmmo: 0
   target: {fileID: 481984350651384562}
 --- !u!95 &481984350356963941
 Animator:
@@ -171,6 +173,8 @@ GameObject:
   - component: {fileID: 481984351964919759}
   - component: {fileID: 481984351964919752}
   - component: {fileID: 481984351964919757}
+  - component: {fileID: 3334302120424265139}
+  - component: {fileID: 1751728768165258460}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -274,3 +278,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3334302120424265139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481984351964919746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845f6deb8d0e556428b37359f011ac16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponNum: 5
+  currentWeapon: 0
+  initWeapon: {fileID: 11400000, guid: 2a256a0a65cfc0f4f991ae1304126f32, type: 2}
+  weaponsList: []
+  empty: {fileID: 0}
+--- !u!114 &1751728768165258460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481984351964919746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a8580abbb35acc42be157cc9ae48ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

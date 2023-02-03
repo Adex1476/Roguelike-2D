@@ -5,11 +5,11 @@ using UnityEngine;
 public abstract class ItemSO : ScriptableObject
 {
     public string name;
-    public type itemT;
+    public itemType itemT;
     public int price;
     public Sprite img;
 
-    public enum type
+    public enum itemType
     {
         Weapon,
         Consum,

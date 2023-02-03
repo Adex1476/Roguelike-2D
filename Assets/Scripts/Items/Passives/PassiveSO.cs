@@ -5,12 +5,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PassiveData", menuName = "ScriptableObjects/PassiveData", order = 2)]
 public class PassiveSO : ItemSO
 {
-    public upgrade upgradeType;
-    public int upgradeBoost;
-    public enum upgrade
-    {
-        MoveSpeIncrease,
-        DashCDReduction,
-        MaxHealthIncrease
-    }
+    public List<upModifier> mods;
+    private void Awake() { itemT = itemType.Passive; }
 }
+
+
+[System.Serializable]
+public struct upModifier
+{
+    public upgradeType ut;
+    public float upgradeBoost;
+}
+
+public enum upgradeType
+{
+    MoveSpeIncrease,
+    DashCDReduction,
+    MaxHealthIncrease
+}
+

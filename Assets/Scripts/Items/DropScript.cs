@@ -13,12 +13,4 @@ public class DropScript : MonoBehaviour
         _sr = GetComponent<SpriteRenderer>();
         _sr.sprite = itemInfo.img;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
-    }
 }

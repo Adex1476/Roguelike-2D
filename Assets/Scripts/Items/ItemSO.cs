@@ -8,11 +8,11 @@ public abstract class ItemSO : ScriptableObject
     public itemType itemT;
     public int price;
     public Sprite img;
+}
 
-    public enum itemType
-    {
-        Weapon,
-        Consum,
-        Passive
-    }
+public enum itemType
+{
+    Weapon,
+    Consum,
+    Passive
 }

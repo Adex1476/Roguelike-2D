@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    private PlayerShoot _ps;
+    [SerializeField] private PlayerShoot _ps;
     public int weaponNum;
     public int currentWeapon;
     public WeaponSO initWeapon;
@@ -22,27 +22,21 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             if (currentWeapon == 0)
             {
                 ChangeWeapon(weaponNum - 1);
             } 
-            else
-            {
-                ChangeWeapon(currentWeapon - 1);
-            }          
+            else { ChangeWeapon(currentWeapon - 1); }          
         }
-        else if (Input.GetKeyDown(KeyCode.C) || Input.GetAxis("Mouse ScrollWheel") > 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             if (currentWeapon == weaponNum - 1)
             {
                 ChangeWeapon(0);
             }
-            else
-            {
-                ChangeWeapon(currentWeapon + 1);
-            }
+            else { ChangeWeapon(currentWeapon + 1); }
         }
         if (Input.GetKeyDown(KeyCode.X)) { DropWeapon(); }
     }

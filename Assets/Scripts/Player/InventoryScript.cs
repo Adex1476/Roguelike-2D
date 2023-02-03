@@ -8,6 +8,7 @@ public class InventoryScript : MonoBehaviour
 
     private WeaponController _wc;
     private PlayerMovement _pm;
+    [SerializeField] private GameManager _gm;
 
     public List<WeaponSO> weapons = new List<WeaponSO>();
 
@@ -30,15 +31,15 @@ public class InventoryScript : MonoBehaviour
     {
         switch (so.itemT)
         {
-            case ItemSO.itemType.Weapon:
+            case itemType.Weapon:
                 if (_wc.AddWeapon((WeaponSO)so)) { Destroy(item); }
                 break;
-            case ItemSO.itemType.Consum:
+            case itemType.Consum:
                 useConsumable((ConsumSO)so);
                 Destroy(item);
                 break;
-            case ItemSO.itemType.Passive:
-                //applyPassive((PassiveSO)so);
+            case itemType.Passive:
+                applyPassive((PassiveSO)so);
                 Destroy(item);
                 break;
         }
@@ -59,27 +60,27 @@ public class InventoryScript : MonoBehaviour
         switch (so.ct)
         {
             case (ConsumSO.consumType.Potion):
-                //GameManager.Instance.Player.GetComponent<UnityEditor.U2D.Animation.CharacterData>().AddHP(item.quantity);
+                _gm.hp = _gm.maxHp;
                 break;
         }
     }
-    /*
+    
     private void applyPassive(PassiveSO so)
     {
         foreach (upModifier mod in so.mods)
         {
             switch (mod.ut)
             {
-                case PassiveSO.upgradeType.MoveSpeIncrease:
+                case upgradeType.MoveSpeIncrease:
                     _pm.spe *= mod.upgradeBoost;
                     break;
-                case PassiveSO.upgradeType.DashCDReduction:
+                case upgradeType.DashCDReduction:
                     _pm.dashCD *= mod.upgradeBoost;
                     break;
-                case PassiveSO.upgradeType.MaxHealthIncrease:
-                    _pm.dashCD *= mod.upgradeBoost;
+                case upgradeType.MaxHealthIncrease:
+                    _gm.maxHp += 1;
                     break;
             }
         }
-    }*/
+    }
 }

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: DashCD
   m_EditorClassIdentifier: 
   name: Dash Cooldown Reduction
-  itemT: 0
+  itemT: 2
   price: 350
   img: {fileID: 21300000, guid: 1863faa38534c9c4a921e33964c8eade, type: 3}
-  upgradeType: 1
-  upgradeBoost: 1
+  mods:
+  - ut: 1
+    upgradeBoost: 0.9

@@ -19,6 +19,10 @@ public class PlayerShoot : MonoBehaviour
         canShoot = true;
         noAmmoLeft = false;
         maxAmmo = currentWeapon.bulletLoader;
+    }
+
+    void Start()
+    {
         currentAmmo = maxAmmo;
     }
 
@@ -57,14 +61,16 @@ public class PlayerShoot : MonoBehaviour
 
     public void WeaponChange(WeaponSO weapon)
     {
-        gameObject.SetActive(true);
         currentWeapon = weapon;
         canShoot = true;
+        noAmmoLeft = false;
+        maxAmmo = currentWeapon.bulletLoader;
+        //currentAmmo = maxAmmo;
     }
 
     public void WeaponDelete()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     protected IEnumerator cdShoot()

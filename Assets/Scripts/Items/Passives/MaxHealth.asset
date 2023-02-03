@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: MaxHealth
   m_EditorClassIdentifier: 
   name: Max Health Increase
-  itemT: 0
+  itemT: 2
   price: 500
   img: {fileID: 21300000, guid: 67adf805a0971ec4e932987b18d6ee10, type: 3}
-  upgradeType: 2
-  upgradeBoost: 25
+  mods:
+  - ut: 2
+    upgradeBoost: 1

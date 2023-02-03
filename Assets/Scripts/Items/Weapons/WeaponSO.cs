@@ -10,6 +10,7 @@ public class WeaponSO : ItemSO
     public int bulletsNum;
     public float dispersionAngle;
     public int bulletLoader;
+    public int currentAmmo;
     public float rateOfFire;
     public float knockback;
     public float stunTime;

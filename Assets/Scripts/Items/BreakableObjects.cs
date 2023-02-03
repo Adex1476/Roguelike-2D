@@ -12,7 +12,7 @@ public class BreakableObjects : MonoBehaviour
 
     void Start()
     {
-        rdm = Random.Range(0, 10);
+        rdm = Random.Range(0, 5);
         pos = transform.position;
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
@@ -23,9 +23,9 @@ public class BreakableObjects : MonoBehaviour
         {
             int bulletDmg = collision.gameObject.GetComponent<Bullet>().Dmg;
             cont += bulletDmg;
-            if (cont == 15)
+            if (cont >= 15)
             {
-                if (rdm == 0 || rdm == 1)
+                if (rdm < 2)
                 {
                     _gm.InstantiateDrop(pos);
                     Destroy(gameObject);

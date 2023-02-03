@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mAmmo = _ps.maxAmmo;
         cAmmo = _ps.currentAmmo;
         showCurrentAmmo();
     }

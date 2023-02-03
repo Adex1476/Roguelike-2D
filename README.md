@@ -13,3 +13,5 @@ _Teclat_
 - Mouse Mov: Apuntar
 - LeftClick: Disparar
 - SPACE: Dash
+- R: Reload
+- Mouse Wheel: Canvi d'arma

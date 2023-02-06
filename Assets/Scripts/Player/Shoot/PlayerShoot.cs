@@ -6,6 +6,7 @@ public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _playerRB;
     [SerializeField] private WeaponSO currentWeapon;
+    [SerializeField] private WeaponSelectorUI weaponUI;
     private bool canShoot;
     private bool noAmmoLeft;
     public int currentAmmo;
@@ -65,7 +66,7 @@ public class PlayerShoot : MonoBehaviour
         canShoot = true;
         noAmmoLeft = false;
         maxAmmo = currentWeapon.bulletLoader;
-        //currentAmmo = maxAmmo;
+        weaponUI.UpdateWeaponUI();
     }
 
     public void WeaponDelete()

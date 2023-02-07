@@ -32,7 +32,25 @@ public class InventoryScript : MonoBehaviour
         switch (so.itemT)
         {
             case itemType.Weapon:
-                if (_wc.AddWeapon((WeaponSO)so)) { Destroy(item); }
+                int i = 0;
+                bool found = false; 
+                while (i < _wc.weaponsList.Count && !found)
+                {
+                    found = (_wc.weaponsList[i] == so);
+                    i++;
+                }
+                if (!found)
+                {
+                    if (_wc.AddWeapon((WeaponSO)so)) { Destroy(item); }
+                }
+                else
+                {
+                    if(_wc._ps.currentAmmo < ((WeaponSO)so).bulletLoader)
+                    {
+                        _wc._ps.currentAmmo = ((WeaponSO)so).bulletLoader;
+                    }   
+                    Destroy(item);
+                }
                 break;
             case itemType.Consum:
                 useConsumable((ConsumSO)so);
@@ -79,6 +97,7 @@ public class InventoryScript : MonoBehaviour
                     break;
                 case upgradeType.MaxHealthIncrease:
                     _gm.maxHp += 1;
+                    _gm.hp = _gm.maxHp;
                     break;
             }
         }

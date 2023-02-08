@@ -10,7 +10,6 @@ public class Settings : MonoBehaviour
     [SerializeField] private Image muteFxImg;
     [SerializeField] private Image muteMusicImg;
     [SerializeField] private GameSound gameSound;
-    [SerializeField] private GameObject pauseGO;
 
 
     void Start()

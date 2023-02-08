@@ -23,25 +23,20 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            mute();
-        }
+        if (Input.GetKeyDown(KeyCode.Q)) { Mute(); }
 
         audioSourceMusic.mute = gameSound.musicMute;
         audioSourceFX.mute = gameSound.soundFxMute;
 
-        if (musicVolume != null)
-            Debug.Log(musicVolume.value);
+        if (musicVolume != null) { Debug.Log(musicVolume.value); }
 
         ChangeImage();
     }
 
-    public void mute()
+    public void Mute()
     {
         gameSound.soundFxMute = !gameSound.soundFxMute;
         gameSound.musicMute = !gameSound.musicMute;
-
 
         ChangeImage();
     }
@@ -53,9 +48,6 @@ public class AudioManager : MonoBehaviour
         {
             mutear.sprite = img[1];
         }
-        else
-        {
-            mutear.sprite = img[0];
-        }
+        else { mutear.sprite = img[0]; }
     }
 }

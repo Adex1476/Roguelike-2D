@@ -24,18 +24,14 @@ public class WeaponController : MonoBehaviour
     {
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            if (weaponsList.Count > IndexcurrentWeapon)
+            if (IndexcurrentWeapon > 0)
             {
-                if (IndexcurrentWeapon == 0)
-                {
-                    ChangeWeapon(weaponNum - 1);
-                }
-                else { ChangeWeapon(IndexcurrentWeapon - 1); }
+                ChangeWeapon(IndexcurrentWeapon - 1);
             }         
         }
         else if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            if (weaponsList.Count > IndexcurrentWeapon)
+            if (weaponsList.Count > IndexcurrentWeapon + 1)
             {
                 if (IndexcurrentWeapon == weaponNum - 1)
                 {

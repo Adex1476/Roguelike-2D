@@ -42,6 +42,7 @@ public class PlayerShoot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) 
         { 
             _currentAmmo = _maxAmmo;
+            _wc.weaponsList[_wc.IndexcurrentWeapon].currentAmmo = currentWeapon.bulletLoader;
             noAmmoLeft = false;
         }
         if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot && !noAmmoLeft)

@@ -23,9 +23,11 @@ public class GameManager : MonoBehaviour
     public int hp;
     private int _score;
     private int _highScore;
+    private int _lastScore;
+    private int _totalPoints;
     private int cAmmo;
     private int mAmmo;
-    private int _enemiesRemaining;
+    private int _enemiesKilled;
     private Vector2 _cameraSize;
 
     public int score { get => _score; set => _score = value; }
@@ -51,20 +53,19 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mAmmo = _ps.maxAmmo;
+        mAmmo = _ps._maxAmmo;
         hp = maxHp;
         hb.SetMaxHealth(maxHp);
         
         updateCS();
-        _enemiesRemaining = 0;
         score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        mAmmo = _ps.maxAmmo;
-        cAmmo = _ps.currentAmmo;
+        mAmmo = _ps._maxAmmo;
+        cAmmo = _ps._currentAmmo;
         showCurrentAmmo();
     }
 

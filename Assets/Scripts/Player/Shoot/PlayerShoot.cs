@@ -7,10 +7,11 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Rigidbody2D _playerRB;
     [SerializeField] private WeaponSO currentWeapon;
     [SerializeField] private WeaponSelectorUI weaponUI;
+    [SerializeField] private WeaponController _wc;
     private bool canShoot;
     private bool noAmmoLeft;
-    public int currentAmmo;
-    public int maxAmmo;
+    public int _currentAmmo;
+    public int _maxAmmo;
     public Transform target;
     protected Vector2 dir;
     private float initAngle;
@@ -19,12 +20,13 @@ public class PlayerShoot : MonoBehaviour
     {
         canShoot = true;
         noAmmoLeft = false;
-        maxAmmo = currentWeapon.bulletLoader;
+        _maxAmmo = currentWeapon.bulletLoader;
+        _currentAmmo = _maxAmmo;
     }
 
     void Start()
     {
-        currentAmmo = maxAmmo;
+        
     }
 
     // Update is called once per frame
@@ -33,11 +35,15 @@ public class PlayerShoot : MonoBehaviour
         dir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
         initAngle = Vector2.SignedAngle(Vector2.down, dir);
         transform.rotation = Quaternion.AngleAxis(initAngle, Vector3.forward);
-        if (currentAmmo <= 0)
+        if (_currentAmmo <= 0)
         {
             noAmmoLeft = true;
         }
-        if (Input.GetKeyDown(KeyCode.R)) { currentAmmo = maxAmmo; }
+        if (Input.GetKeyDown(KeyCode.R)) 
+        { 
+            _currentAmmo = _maxAmmo;
+            noAmmoLeft = false;
+        }
         if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot && !noAmmoLeft)
         {
             Shoot();
@@ -56,7 +62,8 @@ public class PlayerShoot : MonoBehaviour
             bullet.Dmg = currentWeapon.dmg;
             bullet.Stun = currentWeapon.stunTime;
         }
-        currentAmmo -= currentWeapon.bulletsNum;
+        _wc.weaponsList[_wc.IndexcurrentWeapon].currentAmmo  -= currentWeapon.bulletsNum;
+        _currentAmmo = _wc.weaponsList[_wc.IndexcurrentWeapon].currentAmmo;
         StartCoroutine(cdShoot());
     }
 
@@ -65,13 +72,9 @@ public class PlayerShoot : MonoBehaviour
         currentWeapon = weapon;
         canShoot = true;
         noAmmoLeft = false;
-        maxAmmo = currentWeapon.bulletLoader;
+        _maxAmmo = currentWeapon.bulletLoader;
+        _currentAmmo = _wc.weaponsList[_wc.IndexcurrentWeapon].currentAmmo;
         weaponUI.UpdateWeaponUI();
-    }
-
-    public void WeaponDelete()
-    {
-        //gameObject.SetActive(false);
     }
 
     protected IEnumerator cdShoot()

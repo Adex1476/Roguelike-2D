@@ -45,9 +45,9 @@ public class InventoryScript : MonoBehaviour
                 }
                 else
                 {
-                    if(_wc._ps.currentAmmo < ((WeaponSO)so).bulletLoader)
+                    if(_wc._ps._currentAmmo < ((WeaponSO)so).bulletLoader)
                     {
-                        _wc._ps.currentAmmo = ((WeaponSO)so).bulletLoader;
+                        _wc._ps._currentAmmo = ((WeaponSO)so).bulletLoader;
                     }   
                     Destroy(item);
                 }

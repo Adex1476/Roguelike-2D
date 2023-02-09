@@ -22,7 +22,7 @@ public class WeaponSelectorUI : MonoBehaviour
         {
             wIcon[i].sprite = _wc.weaponImg(i);
             wIcon[i].preserveAspect = true;
-            selectedImg.transform.position = wIcon[_wc.currentWeapon].transform.position;
+            selectedImg.transform.position = wIcon[_wc.IndexcurrentWeapon].transform.position;
         }
     }
 

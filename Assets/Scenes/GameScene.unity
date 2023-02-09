@@ -6802,6 +6802,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 481984350356963943, guid: 9a5aa72bb033aca4b9c0857869c5228b,
         type: 3}
+      propertyPath: _wc
+      value: 
+      objectReference: {fileID: 1211326927}
+    - target: {fileID: 481984350356963943, guid: 9a5aa72bb033aca4b9c0857869c5228b,
+        type: 3}
       propertyPath: weaponUI
       value: 
       objectReference: {fileID: 1829243921}
@@ -6895,7 +6900,7 @@ PrefabInstance:
     - target: {fileID: 481984351964919758, guid: 9a5aa72bb033aca4b9c0857869c5228b,
         type: 3}
       propertyPath: spe
-      value: 3.75
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 1751728768165258460, guid: 9a5aa72bb033aca4b9c0857869c5228b,
         type: 3}

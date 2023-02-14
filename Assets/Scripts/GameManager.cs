@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private PlayerMovement _pm;
     [SerializeField] private PlayerShoot _ps;
+    public WeaponSO _weapons;
     public GameObject Player;
     public GameObject Item;
     public ItemListSO DroppableItems;
@@ -47,7 +48,6 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         _instance = this;
-        highScore = PlayerPrefs.GetInt("highScore", highScore);
     }
 
     // Start is called before the first frame update
@@ -100,7 +100,20 @@ public class GameManager : MonoBehaviour
 
     public void updateCS() { _cameraSize = new Vector2(Camera.main.orthographicSize * Screen.width / Screen.height, Camera.main.orthographicSize); }
 
-    public void ReloadScene() { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+    public void ReloadScene() 
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+    }
+
+    public void scoreManagement()
+    {
+        if (highScore < score)
+        {
+            _highScore = score;
+        }
+        _lastScore = score;
+        _totalPoints += _lastScore;
+    }
 
     IEnumerator Death()
     {
@@ -109,6 +122,10 @@ public class GameManager : MonoBehaviour
         _rb.freezeRotation = true;
         _pd.anim.SetTrigger("Dead");
         yield return new WaitForSeconds(1f);
+        for (int i = 0; i < _weapons.Weapons.Count; i++)
+        {
+            _weapons.Weapons[i].currentAmmo = _weapons.Weapons[i].bulletLoader;
+        }
         Destroy(Player);
         ReloadScene();
     }

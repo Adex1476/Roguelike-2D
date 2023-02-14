@@ -25,3 +25,4 @@ MonoBehaviour:
   rateOfFire: 1
   knockback: 10
   stunTime: 1
+  Weapons: []

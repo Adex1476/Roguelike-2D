@@ -3138,7 +3138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &672003903
 Transform:
   m_ObjectHideFlags: 0
@@ -5873,6 +5873,7 @@ MonoBehaviour:
   _rb: {fileID: 1211326920}
   _pm: {fileID: 1211326923}
   _ps: {fileID: 1828187319}
+  _weapons: {fileID: 11400000, guid: eb5b363f370e154469d34fc233aed41f, type: 2}
   Player: {fileID: 1211326919}
   Item: {fileID: 1693519582576637323, guid: 696edf00d91196e499b197d2ca5b4e73, type: 3}
   DroppableItems: {fileID: 11400000, guid: 2283d9f90742553409e531725e624541, type: 2}

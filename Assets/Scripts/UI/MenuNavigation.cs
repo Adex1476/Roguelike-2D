@@ -27,7 +27,6 @@ public class MenuNavigation : MonoBehaviour
         buttonMenu[2].onClick.AddListener(UnloadShop);
         buttonMenu[3].onClick.AddListener(UnloadSettings);
     }
-
     
     private void LoadMenu() => canvasMenu[0].SetActive(true);
     private void UnloadMenu() => canvasMenu[0].SetActive(false);

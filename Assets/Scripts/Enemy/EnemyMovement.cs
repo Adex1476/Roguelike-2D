@@ -43,7 +43,11 @@ public class EnemyMovement : MonoBehaviour
             int bulletDmg = collision.gameObject.GetComponent<Bullet>().Dmg;
             _stunTime = collision.gameObject.GetComponent<Bullet>().Stun;
             cont += bulletDmg;
-            if (cont >= 10) { CollisionBehaviour(); }
+            if (cont >= 10) 
+            {
+                _gm.scorePoints(5);
+                CollisionBehaviour(); 
+            }
             if (_stunTime > 0f)
                 StartCoroutine(StunBehaviour());
         }
@@ -68,7 +72,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void Destroy() 
     {
-        _gm.scorePoints(5);
         Destroy(this.gameObject); 
     }
 }

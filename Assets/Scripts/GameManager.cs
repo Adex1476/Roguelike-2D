@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     public int score { get => _score; set => _score = value; }
     public int highScore { get => _highScore; set => _highScore = value; }
+    public int lastScore { get => _lastScore; set => _lastScore = value; }
 
     public Vector2 cameraSize { get { return _cameraSize; } }
 
@@ -76,11 +77,6 @@ public class GameManager : MonoBehaviour
         return hp;
     }
 
-    public void PlayerDeath()
-    {
-        StartCoroutine(Death());
-    }
-
     public void scorePoints(int scoreAux)
     {
         score += scoreAux;
@@ -102,17 +98,26 @@ public class GameManager : MonoBehaviour
 
     public void ReloadScene() 
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+        scoreManagement();
+        SceneManager.LoadScene("StartScene"/*SceneManager.GetActiveScene().buildIndex*/); 
+    }
+
+    public void PlayerDeath()
+    {
+        StartCoroutine(Death());
     }
 
     public void scoreManagement()
     {
         if (highScore < score)
         {
-            _highScore = score;
+            highScore = score;
+            PlayerPrefs.SetInt("HighScore", highScore);
         }
-        _lastScore = score;
-        _totalPoints += _lastScore;
+        lastScore = score;
+        PlayerPrefs.SetInt("LastScore", lastScore);
+        _totalPoints += lastScore;
+        PlayerPrefs.SetInt("TotalPoints", _totalPoints);
     }
 
     IEnumerator Death()
@@ -126,6 +131,7 @@ public class GameManager : MonoBehaviour
         {
             _weapons.Weapons[i].currentAmmo = _weapons.Weapons[i].bulletLoader;
         }
+        scoreManagement();
         Destroy(Player);
         ReloadScene();
     }

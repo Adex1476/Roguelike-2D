@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int hp;
     private int _score;
     private int _highScore;
+    public int _isHighscore;
     private int _lastScore;
     private int _totalPoints;
     private int cAmmo;
@@ -60,6 +61,8 @@ public class GameManager : MonoBehaviour
         
         updateCS();
         score = 0;
+        _enemiesKilled = 0;
+        _isHighscore = 0;
     }
 
     // Update is called once per frame
@@ -83,6 +86,12 @@ public class GameManager : MonoBehaviour
         if (scrpoints != null) { scrpoints.text = "Score : " + score; }
     }
 
+    public void slainedEnemies(int enemiesAux)
+    {
+        _enemiesKilled += enemiesAux;
+        if (scrpoints != null) { scrpoints.text = "Score : " + score; }
+    }
+
     public void showCurrentAmmo()
     {
         if (ammo != null) { ammo.text = "Ammo: " + cAmmo + "/" + mAmmo; }
@@ -99,7 +108,7 @@ public class GameManager : MonoBehaviour
     public void ReloadScene() 
     {
         scoreManagement();
-        SceneManager.LoadScene("StartScene"/*SceneManager.GetActiveScene().buildIndex*/); 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
     }
 
     public void PlayerDeath()
@@ -112,11 +121,14 @@ public class GameManager : MonoBehaviour
         highScore = PlayerPrefs.GetInt("HighScore", highScore);
         if (highScore < score)
         {
+            _isHighscore = 1;
             highScore = score;
             PlayerPrefs.SetInt("HighScore", highScore);
+            PlayerPrefs.SetInt("HSBool", _isHighscore);
         }
         lastScore = score;
         PlayerPrefs.SetInt("LastScore", lastScore);
+        _totalPoints = PlayerPrefs.GetInt("TotalPoints", _totalPoints);
         _totalPoints += lastScore;
         PlayerPrefs.SetInt("TotalPoints", _totalPoints);
     }
@@ -134,7 +146,8 @@ public class GameManager : MonoBehaviour
             _weapons.Weapons[i].currentAmmo = _weapons.Weapons[i].bulletLoader;
         }
         scoreManagement();
+        PlayerPrefs.SetInt("ResultID", 1);
         Destroy(Player);
-        ReloadScene();
+        SceneManager.LoadScene("ResultScene");
     }
 }

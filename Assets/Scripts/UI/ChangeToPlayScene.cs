@@ -25,5 +25,4 @@ public class ChangeToPlayScene : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
-
 }

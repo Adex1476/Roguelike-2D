@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviour
 
     public void scoreManagement()
     {
+        highScore = PlayerPrefs.GetInt("HighScore", highScore);
         if (highScore < score)
         {
             highScore = score;
@@ -125,6 +126,7 @@ public class GameManager : MonoBehaviour
         Player.GetComponent<PlayerMovement>().enabled = false;
         Player.transform.GetChild(0).GetComponent<PlayerShoot>().enabled = false;
         _rb.freezeRotation = true;
+        EffectAudioController.PlaySound("PlayerDeath");
         _pd.anim.SetTrigger("Dead");
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < _weapons.Weapons.Count; i++)

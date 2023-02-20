@@ -58,6 +58,7 @@ public class EnemyShoot : MonoBehaviour
         Destroy(this.GetComponent<CapsuleCollider2D>());
         _isDead = true;
         animator.SetTrigger("Death");
+        EffectAudioController.PlaySound("EnemyDeath");
         Invoke("Destroy", 1f);
     }
 

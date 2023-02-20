@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private PlayerMovement _pm;
     [SerializeField] private Animator animator;
+    private SpawnerScript _ss;
     private GameManager _gm;
     private Transform _pos;
     private float _step;
@@ -20,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
         _isDead = false;
         _isStunned = false;
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _ss = GameObject.Find("Spawners").GetComponent<SpawnerScript>();
         _pos = GameObject.Find("Player").transform;
     }
 
@@ -45,6 +47,8 @@ public class EnemyMovement : MonoBehaviour
             cont += bulletDmg;
             if (cont >= 10) 
             {
+                _ss._enemiesLeft--;
+                _gm.slainedEnemies(1);
                 _gm.scorePoints(5);
                 CollisionBehaviour(); 
             }

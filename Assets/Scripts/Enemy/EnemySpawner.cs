@@ -1,56 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
-    
-    private bool _timerIsRunning;
-    public float _timeRemaining;
-    public float _timeBtwWaves;
     public float cont;
-    private GameManager _gm;
+    [SerializeField]private SpawnerScript _ss;
     [SerializeField] private GameObject _enemy1;
-    [SerializeField] private GameObject[] spawnPoints;
-    [SerializeField] private GameObject _enemy2;
-    private int maxEnemies = 4;
-    private int minEnemies = 1;
-    private int enemies;
     private int max;
     private float x;
     private float y;
-    [SerializeField] private Text _timeText;
 
     // Start is called before the first frame update
     void Start()
-    { 
-        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        var rdmSpawn = Random.Range(0, 4);
-        Instantiate(_enemy2, spawnPoints[rdmSpawn].transform.position, Quaternion.identity);
-        _timerIsRunning = true;
+    {
+   
         x = gameObject.transform.position.x;
         y = gameObject.transform.position.y;
-        InvokeRepeating("Spawn", 1f, _timeBtwWaves);
+        InvokeRepeating("Spawn", 1f, _ss._timeBtwWaves);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_timerIsRunning)
-        {
-            if (_timeRemaining > 0)
-            {
-                _timeRemaining -= Time.deltaTime;
-                DisplayTime(_timeRemaining);
-            }
-            else
-            {
-                _timeRemaining = 0;
-                _timerIsRunning = false;
-                CancelInvoke();
-            }
-        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -64,19 +37,15 @@ public class EnemySpawner : MonoBehaviour
 
     void Spawn()
     {
-        Instantiate(_enemy1, posSpawn(), Quaternion.identity);
+        if (_ss._timerIsRunning)
+        {
+            Instantiate(_enemy1, posSpawn(), Quaternion.identity);
+        }
+        _ss._enemiesLeft++;
     }
 
     Vector2 posSpawn() 
     { 
         return new Vector2(x, y); 
-    }
-
-    void DisplayTime(float timeToDisplay)
-    {
-        timeToDisplay += 1;
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        _timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }

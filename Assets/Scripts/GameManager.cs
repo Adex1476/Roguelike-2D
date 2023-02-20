@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
     public void slainedEnemies(int enemiesAux)
     {
         _enemiesKilled += enemiesAux;
-        if (scrpoints != null) { scrpoints.text = "Score : " + score; }
+        PlayerPrefs.SetInt("SlainedEnemies", _enemiesKilled);
     }
 
     public void showCurrentAmmo()
@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", highScore);
             PlayerPrefs.SetInt("HSBool", _isHighscore);
         }
+        PlayerPrefs.SetInt("HSBool", _isHighscore);
         lastScore = score;
         PlayerPrefs.SetInt("LastScore", lastScore);
         _totalPoints = PlayerPrefs.GetInt("TotalPoints", _totalPoints);

@@ -8,7 +8,9 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private Transform _projPos;
     [SerializeField] private Animator _anim;
     [SerializeField] private Animator animator;
+    private SpawnerScript _ss;
     private GameManager _gm;
+    private EnemySpawner _es;
     private bool _isDead;
     private bool _isStunned;
     private float _stunTime;
@@ -21,6 +23,7 @@ public class EnemyShoot : MonoBehaviour
         _isDead = false;
         _isStunned = false;
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _ss = GameObject.Find("Spawners").GetComponent<SpawnerScript>();
     }
 
     // Update is called once per frame
@@ -73,6 +76,8 @@ public class EnemyShoot : MonoBehaviour
 
     private void Destroy() 
     {
+        _ss._enemiesLeft--;
+        _gm.slainedEnemies(1);
         _gm.scorePoints(10);
         Destroy(this.gameObject); 
     }

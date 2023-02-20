@@ -24,8 +24,11 @@ public class ResultManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        finalScore = PlayerPrefs.GetInt("LastScore");
+        enemiesCount = PlayerPrefs.GetInt("SlainedEnemies");
+        roomsCount = PlayerPrefs.GetInt("Rooms");
         result = PlayerPrefs.GetInt("ResultID");
-        if (PlayerPrefs.GetInt("resultID") == 0)
+        if (result == 0)
         {
             resultTxt.text = "VICTORY";
             resultTxt.color = Color.green;
@@ -33,7 +36,7 @@ public class ResultManager : MonoBehaviour
             audiosource.clip = victoryMusic;
             audiosource.Play();
         }
-        if (PlayerPrefs.GetInt("resultID") == 1)
+        if (result == 1)
         {
             resultTxt.text = "DEFEAT";
             resultTxt.color = Color.red;
@@ -43,7 +46,7 @@ public class ResultManager : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("HSBool") == 1)
         {
-            EffectAudioController.PlaySound("HighScore");
+            //EffectAudioController.PlaySound("HighScore");
             StartCoroutine(HighScoreEffect());
         }
         scoreTxt.text = "SCORE: " + finalScore + " PTS";
@@ -60,7 +63,7 @@ public class ResultManager : MonoBehaviour
     IEnumerator HighScoreEffect()
     {
         highScorePopUp.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
         for (int i = 0; i < 3; i++)
         {

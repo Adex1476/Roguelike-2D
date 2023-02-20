@@ -243,7 +243,7 @@ MonoBehaviour:
   scoreTxt: {fileID: 1942995591}
   roomsTxt: {fileID: 62063980}
   enemiesTxt: {fileID: 869091782}
-  highScorePopUp: {fileID: 0}
+  highScorePopUp: {fileID: 1846347273}
   audiosource: {fileID: 1308547196}
   victoryMusic: {fileID: 8300000, guid: a33fc1e475592f5448b6b1c02e797662, type: 3}
   defeatMusic: {fileID: 8300000, guid: a43cc2c0bba709a44a1c4782895a3221, type: 3}

@@ -53,13 +53,11 @@ public class SpawnerScript : MonoBehaviour
         _timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    public void DoorOpen()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            PlayerPrefs.SetInt("Rooms", 1);
-            PlayerPrefs.SetInt("ResultID", 0);
-            SceneManager.LoadScene("ResultScene");
-        }
+        PlayerPrefs.SetInt("Rooms", 1);
+        PlayerPrefs.SetInt("ResultID", 0);
+        SceneManager.LoadScene("ResultScene");
     }
 }

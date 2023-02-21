@@ -22,16 +22,12 @@ public class MenuNavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        buttonMenu[0].onClick.AddListener(LoadShop);
-        buttonMenu[1].onClick.AddListener(LoadSettings);
-        buttonMenu[2].onClick.AddListener(UnloadShop);
-        buttonMenu[3].onClick.AddListener(UnloadSettings);
+        buttonMenu[0].onClick.AddListener(LoadSettings);
+        buttonMenu[1].onClick.AddListener(UnloadSettings);
     }
     
     private void LoadMenu() => canvasMenu[0].SetActive(true);
     private void UnloadMenu() => canvasMenu[0].SetActive(false);
-    private void LoadShop() { UnloadMenu(); canvasMenu[1].SetActive(true); }
-    private void UnloadShop() { canvasMenu[1].SetActive(false); LoadMenu(); }
-    private void LoadSettings() { UnloadMenu(); canvasMenu[2].SetActive(true); }
-    private void UnloadSettings() { canvasMenu[2].SetActive(false); LoadMenu(); }
+    private void LoadSettings() { UnloadMenu(); canvasMenu[1].SetActive(true); }
+    private void UnloadSettings() { canvasMenu[1].SetActive(false); LoadMenu(); }
 }

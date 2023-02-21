@@ -29,7 +29,7 @@ public class SpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (/*_enemiesLeft == 0 &&*/ !_timerIsRunning)
+        if (_enemiesLeft <= 0 && !_timerIsRunning)
             _event.Invoke();
 
         if (_timeRemaining > 0)
@@ -58,6 +58,7 @@ public class SpawnerScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("Rooms", 1);
         PlayerPrefs.SetInt("ResultID", 0);
+        GameManager.Instance.scoreManagement();
         SceneManager.LoadScene("ResultScene");
     }
 }

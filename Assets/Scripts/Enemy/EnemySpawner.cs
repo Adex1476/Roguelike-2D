@@ -40,8 +40,9 @@ public class EnemySpawner : MonoBehaviour
         if (_ss._timerIsRunning)
         {
             Instantiate(_enemy1, posSpawn(), Quaternion.identity);
+            _ss._enemiesLeft++;
         }
-        _ss._enemiesLeft++;
+       
     }
 
     Vector2 posSpawn() 

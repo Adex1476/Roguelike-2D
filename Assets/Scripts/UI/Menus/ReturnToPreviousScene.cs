@@ -28,5 +28,9 @@ public class ReturnToPreviousScene : MonoBehaviour
     }
 
     void GoToMenu() { SceneManager.LoadScene("StartScene"); }
-    void GoToGame() { SceneManager.LoadScene("GameScene"); }
+    void GoToGame() 
+    {
+        GameManager.Instance.ReloadWeapons();
+        SceneManager.LoadScene("GameScene"); 
+    }
 }

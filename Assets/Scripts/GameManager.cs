@@ -142,13 +142,18 @@ public class GameManager : MonoBehaviour
         EffectAudioController.PlaySound("PlayerDeath");
         _pd.anim.SetTrigger("Dead");
         yield return new WaitForSeconds(1f);
-        for (int i = 0; i < _weapons.Weapons.Count; i++)
-        {
-            _weapons.Weapons[i].currentAmmo = _weapons.Weapons[i].bulletLoader;
-        }
+        ReloadWeapons();
         scoreManagement();
         PlayerPrefs.SetInt("ResultID", 1);
         Destroy(Player);
         SceneManager.LoadScene("ResultScene");
+    }
+
+    public void ReloadWeapons()
+    {
+        for (int i = 0; i < _weapons.Weapons.Count; i++)
+        {
+            _weapons.Weapons[i].currentAmmo = _weapons.Weapons[i].bulletLoader;
+        }
     }
 }

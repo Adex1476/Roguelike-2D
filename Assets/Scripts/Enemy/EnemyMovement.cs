@@ -36,6 +36,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !_pm._invencible)
         {
+            _ss._enemiesLeft--;
             GameManager.Instance.dmg();
             CollisionBehaviour();
             if (_gm.hp == 0) { _gm.PlayerDeath(); }

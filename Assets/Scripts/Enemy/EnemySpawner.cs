@@ -37,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Spawn()
     {
-        if (_ss._timerIsRunning)
+        if (_ss._timerIsRunning && !GameManager.Instance.isPaused)
         {
             Instantiate(_enemy1, posSpawn(), Quaternion.identity);
             _ss._enemiesLeft++;

@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     {
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
-        Move();
+        if (!GameManager.Instance.isPaused) { Move(); }
     }
 
     private void Move()

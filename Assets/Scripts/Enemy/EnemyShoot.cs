@@ -29,11 +29,14 @@ public class EnemyShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > 2f && !_isStunned)
+        if (!GameManager.Instance.isPaused)
         {
-            timer = 0;
-            Shoot();
+            timer += Time.deltaTime;
+            if (timer > 2f && !_isStunned)
+            {
+                timer = 0;
+                Shoot();
+            }
         }
     }
 

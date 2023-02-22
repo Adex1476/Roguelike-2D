@@ -32,16 +32,19 @@ public class SpawnerScript : MonoBehaviour
         if (_enemiesLeft <= 0 && !_timerIsRunning)
             _event.Invoke();
 
-        if (_timeRemaining > 0)
+        if (_timerIsRunning && !GameManager.Instance.isPaused)
         {
-            _timeRemaining -= Time.deltaTime;
-            DisplayTime(_timeRemaining);
-        }
-        else
-        {
-            _timeRemaining = 0;
-            _timerIsRunning = false;
-            CancelInvoke();
+            if (_timeRemaining > 0)
+            {
+                _timeRemaining -= Time.deltaTime;
+                DisplayTime(_timeRemaining);
+            }
+            else
+            {
+                _timeRemaining = 0;
+                _timerIsRunning = false;
+                CancelInvoke();
+            }
         }
     }
 

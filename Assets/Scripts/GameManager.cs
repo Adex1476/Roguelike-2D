@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private PlayerMovement _pm;
     [SerializeField] private PlayerShoot _ps;
+    [SerializeField] private GameObject _shopMenu;
     public WeaponSO _weapons;
     public GameObject Player;
     public GameObject Item;
@@ -20,6 +21,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text enemies;
     [SerializeField] private Text scrpoints;
     [SerializeField] private Text ammo;
+    [SerializeField] private EffectAudioController _effectAudioController;
+    public bool isPaused;
+    public bool isDead;
+    public bool shopActive;
     public int maxHp = 6;
     public int hp;
     private int _score;
@@ -58,6 +63,9 @@ public class GameManager : MonoBehaviour
         mAmmo = _ps._maxAmmo;
         hp = maxHp;
         hb.SetMaxHealth(maxHp);
+        isPaused = false;
+        isDead = false;
+        shopActive = false;
         
         updateCS();
         score = 0;
@@ -71,7 +79,26 @@ public class GameManager : MonoBehaviour
         mAmmo = _ps._maxAmmo;
         cAmmo = _ps._currentAmmo;
         showCurrentAmmo();
+
+        if ((Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(KeyCode.Escape)) && !isDead && !shopActive)
+        {
+            Pause();
+            if (isPaused)
+            {
+                _effectAudioController.OnClickSound();
+            }
+            else
+            {
+                _effectAudioController.OnClickBackSound();
+            }
+        }
+        if (!shopActive)
+        {
+            _shopMenu.SetActive(isPaused);
+        }  
     }
+
+    public void Pause() => isPaused = !isPaused;
 
     public int dmg()
     {
@@ -113,6 +140,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDeath()
     {
+        isDead = true;
         StartCoroutine(Death());
     }
 

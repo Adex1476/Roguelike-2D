@@ -46,7 +46,7 @@ public class ResultManager : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("HSBool") == 1)
         {
-            //EffectAudioController.PlaySound("HighScore");
+            EffectAudioController.PlaySound("HighScore");
             StartCoroutine(HighScoreEffect());
         }
         scoreTxt.text = "SCORE: " + finalScore + " PTS";

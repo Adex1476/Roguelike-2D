@@ -22,14 +22,14 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && !GameManager.Instance.isPaused)
         {
             if (IndexcurrentWeapon > 0)
             {
                 ChangeWeapon(IndexcurrentWeapon - 1);
             }         
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0 && !GameManager.Instance.isPaused)
         {
             if (weaponsList.Count > IndexcurrentWeapon + 1)
             {

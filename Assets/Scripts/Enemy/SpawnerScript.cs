@@ -21,7 +21,7 @@ public class SpawnerScript : MonoBehaviour
     void Start()
     {
         var rdmSpawn = Random.Range(0, 4);
-        _enemiesLeft = rdmSpawn;
+        _enemiesLeft = 0;
         Instantiate(_enemy2, spawnPoints[rdmSpawn].transform.position, Quaternion.identity);
         _timerIsRunning = true;
     }
@@ -29,6 +29,9 @@ public class SpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        _enemiesLeft = enemies.Length;
+
         if (_enemiesLeft <= 0 && !_timerIsRunning)
             _event.Invoke();
 

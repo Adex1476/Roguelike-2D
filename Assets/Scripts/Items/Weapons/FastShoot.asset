@@ -21,6 +21,7 @@ MonoBehaviour:
   bulletsNum: 1
   dispersionAngle: 0
   bulletLoader: 80
+  currentAmmo: 80
   rateOfFire: 8
   knockback: 0
   stunTime: 0

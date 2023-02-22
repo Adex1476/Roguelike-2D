@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     {
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
-        Move();
+        if (!GameManager.Instance.isPaused) { Move(); }
     }
 
     private void Move()
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         {
             m = Mov.Movement;
             dir = new Vector2(x, y);
-            _rb.AddForce(dir * spe, ForceMode2D.Force);
+            _rb.AddForce(dir * spe * Time.deltaTime, ForceMode2D.Force);
         }
 
         if (x == 0 && y == 0) { StopMovement(); }

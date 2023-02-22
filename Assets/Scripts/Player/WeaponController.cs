@@ -6,7 +6,7 @@ public class WeaponController : MonoBehaviour
 {
     [SerializeField] public PlayerShoot _ps;
     public int weaponNum;
-    public int currentWeapon;
+    public int IndexcurrentWeapon;
     public WeaponSO initWeapon;
     public List<WeaponSO> weaponsList = new List<WeaponSO>();
     public Sprite empty;
@@ -22,23 +22,24 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && !GameManager.Instance.isPaused)
         {
-            if (currentWeapon == 0)
+            if (IndexcurrentWeapon > 0)
             {
-                ChangeWeapon(weaponNum - 1);
-            } 
-            else { ChangeWeapon(currentWeapon - 1); }          
+                ChangeWeapon(IndexcurrentWeapon - 1);
+            }         
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0 && !GameManager.Instance.isPaused)
         {
-            if (currentWeapon == weaponNum - 1)
+            if (weaponsList.Count > IndexcurrentWeapon + 1)
             {
-                ChangeWeapon(0);
+                if (IndexcurrentWeapon == weaponNum - 1)
+                {
+                    ChangeWeapon(0);
+                }
+                else { ChangeWeapon(IndexcurrentWeapon + 1); }
             }
-            else { ChangeWeapon(currentWeapon + 1); }
         }
-        if (Input.GetKeyDown(KeyCode.X)) { DropWeapon(); }
     }
 
     public bool AddWeapon(WeaponSO weapon)
@@ -48,8 +49,8 @@ public class WeaponController : MonoBehaviour
         if (weaponsList.Count < weaponNum)
         {
             weaponsList.Add(weapon);
-            currentWeapon = weaponsList.Count - 1;
-            _ps.WeaponChange(weaponsList[currentWeapon]);
+            IndexcurrentWeapon = weaponsList.Count - 1;
+            _ps.WeaponChange(weaponsList[IndexcurrentWeapon]);
         }
         else { weaponGrabbed = false; }
         return weaponGrabbed;
@@ -57,29 +58,17 @@ public class WeaponController : MonoBehaviour
 
     public void ChangeWeapon(int n)
     {
-        currentWeapon = n;
+        IndexcurrentWeapon = n;
         if (weaponsList.Count > n)
         {
-            _ps.WeaponChange(weaponsList[currentWeapon]);
+            _ps.WeaponChange(weaponsList[IndexcurrentWeapon]);
         }    
-        else { _ps.WeaponDelete(); }
-    }
-
-    public void DropWeapon()
-    {
-        if (currentWeapon < weaponsList.Count)
-        {
-            Vector2 dropPosition = new Vector2(transform.position.x + 1, transform.position.y);
-            InstantiateCurrentWeapon(dropPosition);
-            weaponsList.RemoveAt(currentWeapon);
-            _ps.WeaponDelete();
-        }
     }
 
     public void InstantiateCurrentWeapon(Vector2 pos)
     {
         GameObject go = Instantiate(GameManager.Instance.Item, pos, Quaternion.identity);
-        go.GetComponent<DropScript>().itemInfo = weaponsList[currentWeapon];
+        go.GetComponent<DropScript>().itemInfo = weaponsList[IndexcurrentWeapon];
     }
 
     public Sprite weaponImg(int m)

@@ -14,6 +14,7 @@ public class WeaponSO : ItemSO
     public float rateOfFire;
     public float knockback;
     public float stunTime;
+    public List<WeaponSO> Weapons;
 
     private void Awake() { itemT = itemType.Weapon; }
 
